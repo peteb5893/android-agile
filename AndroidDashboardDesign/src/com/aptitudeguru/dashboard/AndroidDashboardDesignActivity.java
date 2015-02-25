@@ -87,7 +87,6 @@ public class AndroidDashboardDesignActivity extends Activity
 			e.printStackTrace();
 		}
 
-		
 		Button btn_home = (Button) findViewById(R.id.btn_home);
 		Button btn_fav = (Button) findViewById(R.id.btn_fav);
 		Button btn_score = (Button) findViewById(R.id.btn_score);
@@ -129,6 +128,7 @@ public class AndroidDashboardDesignActivity extends Activity
 		});
 
 		btn_tutorial.setOnClickListener(new View.OnClickListener() 
+
 		{
 			public void onClick(View view) 
 			{
