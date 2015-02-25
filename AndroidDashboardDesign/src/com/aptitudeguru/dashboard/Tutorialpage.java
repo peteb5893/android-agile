@@ -35,14 +35,19 @@ public class Tutorialpage extends Activity implements OnTouchListener {
     float fontsize = 13;
 
 	
+    //gets the location of users touch to select the correct option. 
 	public boolean onTouchEvent(MotionEvent event) {
         if (event.getPointerCount() == 2) {
-            int action = event.getAction();
-            int pureaction = action & MotionEvent.ACTION_MASK;
-            if (pureaction == MotionEvent.ACTION_POINTER_DOWN) {
+        	//gets the users action from the event handler. 
+            int userAction = event.getAction();
+            //puts the user action into another variable. 
+            int action = userAction & MotionEvent.ACTION_MASK;
+            //if the action was a pointer down action we then get the location of the pointer down. 
+            if (action == MotionEvent.ACTION_POINTER_DOWN) {
                 mBaseDist = getDistance(event);
                 mBaseRatio = mRatio;
             } else {
+            	
                 float delta = (getDistance(event) - mBaseDist) / STEP;
                 float multi = (float) Math.pow(2, delta);
                 mRatio = Math.min(1024.0f, Math.max(0.1f, mBaseRatio * multi));
@@ -51,8 +56,8 @@ public class Tutorialpage extends Activity implements OnTouchListener {
         }
         return true;
     }
-
-    int getDistance(MotionEvent event) {
+	
+	int getDistance(MotionEvent event) {
         int dx = (int) (event.getX(0) - event.getX(1));
         int dy = (int) (event.getY(0) - event.getY(1));
         return (int) (Math.sqrt(dx * dx + dy * dy));
@@ -63,99 +68,92 @@ public class Tutorialpage extends Activity implements OnTouchListener {
     }
 	   @SuppressLint("NewApi")
 	@Override
+	//creates the page. 
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
+	        //loads in the page from the resources. 
 	        setContentView(R.layout.tutorial_layout);
-	      
-	        
-	       
+	        //These are the options found in the side menu. 
+	        //button which takes you home. 
 	        Button btn_home = (Button) findViewById(R.id.btn_home);
-	             
-	             // Dashboard Friends button
-	             Button btn_fav = (Button) findViewById(R.id.btn_fav);
-	             
-	             // Dashboard Messages button
-	             Button btn_score = (Button) findViewById(R.id.btn_score);
-	             
-	             // Dashboard Places button
-	             Button btn_tutorial = (Button) findViewById(R.id.btn_tutorial);
-	             
-	             // Dashboard Events button
-	             Button btn_about = (Button) findViewById(R.id.btn_about);
-	             Button btn_help = (Button) findViewById(R.id.btn_help);
-	     		
-	     		btn_help.setOnClickListener(new View.OnClickListener() {
+	        // Dashboard Favriote questions button
+	        Button btn_fav = (Button) findViewById(R.id.btn_fav);
+	        // Dashboard scoreboard button
+	        Button btn_score = (Button) findViewById(R.id.btn_score);
+	        // Dashboard tutorials button
+	        Button btn_tutorial = (Button) findViewById(R.id.btn_tutorial);
+	        // Dashboard about button
+	        Button btn_about = (Button) findViewById(R.id.btn_about);
+	        //Dashboard help button. 
+	        Button btn_help = (Button) findViewById(R.id.btn_help);
+	       
+		       //When home button is clicked the correct page is loaded using intent. 
+	        btn_home.setOnClickListener(new View.OnClickListener() {
+	 			
+	 			@Override
+	 			public void onClick(View view) {
+	 				
+	 				Intent i = new Intent(getApplicationContext(), AndroidDashboardDesignActivity.class);
+	 				i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+	 				startActivity(i);
+	 			}
+	 		});
+	        
+            btn_fav.setOnClickListener(new View.OnClickListener() {
+     			
+     			@Override
+     			public void onClick(View view) {
+     			
+     				Intent i = new Intent(getApplicationContext(), FavPage.class);
+     				
+     				startActivity(i);
+     			}
+     		});
+            
+            btn_score.setOnClickListener(new View.OnClickListener() {
+     			
+     			@Override
+     			public void onClick(View view) {
+     				
+     				Intent i = new Intent(getApplicationContext(), scoremenu.class);
+     				startActivity(i);
+     			}
+     		});
+            
+            btn_tutorial.setOnClickListener(new View.OnClickListener() {
+     			
+     			@Override
+     			public void onClick(View view) {
+     			
+     				
+     			}
+     		});
+            
+            btn_about.setOnClickListener(new View.OnClickListener() {
+     			
+     			@Override
+     			public void onClick(View view) {
+     				
+     				Intent i = new Intent(getApplicationContext(), AboutUs.class);
+     				startActivity(i);
+     			}
+     		});
+            
+	        btn_help.setOnClickListener(new View.OnClickListener() {
 
 	     			@Override
 	     			public void onClick(View view) {
 	     				// Launching News Feed Screen
+	     				// Put the correct data on the Intent/
 	     				Intent i = new Intent(getApplicationContext(),
 	     					Help.class);
-
+	     				//use start activity on the intent to begin the correct operation. 
 	     				startActivity(i);
 	     			}
 	     		});
 
-	             
-	            
-	        
-	                btn_home.setOnClickListener(new View.OnClickListener() {
-	     			
-	     			@Override
-	     			public void onClick(View view) {
-	     				
-	     				Intent i = new Intent(getApplicationContext(), AndroidDashboardDesignActivity.class);
-	     				i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-	     				startActivity(i);
-	     			}
-	     		});
-	             
-	      
-	             btn_fav.setOnClickListener(new View.OnClickListener() {
-	     			
-	     			@Override
-	     			public void onClick(View view) {
-	     			
-	     				Intent i = new Intent(getApplicationContext(), FavPage.class);
-	     				
-	     				startActivity(i);
-	     			}
-	     		});
-	             
-	          
-	             btn_score.setOnClickListener(new View.OnClickListener() {
-	     			
-	     			@Override
-	     			public void onClick(View view) {
-	     				
-	     				Intent i = new Intent(getApplicationContext(), scoremenu.class);
-	     				startActivity(i);
-	     			}
-	     		});
-	             
-	         
-	             btn_tutorial.setOnClickListener(new View.OnClickListener() {
-	     			
-	     			@Override
-	     			public void onClick(View view) {
-	     			
-	     				
-	     			}
-	     		});
-	             
-	           
-	             btn_about.setOnClickListener(new View.OnClickListener() {
-	     			
-	     			@Override
-	     			public void onClick(View view) {
-	     				
-	     				Intent i = new Intent(getApplicationContext(), AboutUs.class);
-	     				startActivity(i);
-	     			}
-	     		});
-	             
-	     		Button btn_quants = (Button) findViewById(R.id.btn_score_quants);
-	    		
+	             // various tutorial button. ID is being passed to database in order to find the correct data and display it. 
+	        	Button btn_quants = (Button) findViewById(R.id.btn_score_quants);
 	     		Button btn_c=(Button) findViewById(R.id.btn_score_c);
 	    		Button btn_cpp = (Button) findViewById(R.id.btn_score_cpp);
 	    		Button btn_java=(Button) findViewById(R.id.btn_score_java);
@@ -165,6 +163,7 @@ public class Tutorialpage extends Activity implements OnTouchListener {
 	    		Button btn_html = (Button) findViewById(R.id.btn_score_html);
 	    		Button btn_interview = (Button) findViewById(R.id.btn_score_interview);
 	    		
+	    		// Following code listens for the user selection then uses intent in order to get the required information and display them to the user. 
 	    		btn_quants.setOnClickListener(new View.OnClickListener() {
 
 	    			@Override
@@ -175,6 +174,7 @@ public class Tutorialpage extends Activity implements OnTouchListener {
 	    				startActivity(i);
 	    			}
 	    		});
+	    		
 	    		btn_c.setOnClickListener(new View.OnClickListener() {
 
 	    			@Override
@@ -260,6 +260,7 @@ public class Tutorialpage extends Activity implements OnTouchListener {
 		    			
 	    			}
 	    		});
+	    		
 	    		btn_java.setOnClickListener(new View.OnClickListener() {
 
 	    			@Override
@@ -346,6 +347,7 @@ public class Tutorialpage extends Activity implements OnTouchListener {
 					
 	    			}
 	    		});
+	    		
 	    		btn_dbms.setOnClickListener(new View.OnClickListener() {
 
 	    			@Override
@@ -519,7 +521,6 @@ public class Tutorialpage extends Activity implements OnTouchListener {
 					
 	    			}
 	    				
-	    			
 	    		});
 	    		
 	    		
