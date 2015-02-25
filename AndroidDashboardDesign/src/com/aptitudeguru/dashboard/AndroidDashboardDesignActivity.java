@@ -35,7 +35,7 @@ public class AndroidDashboardDesignActivity extends Activity
 	{
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 		TextView title = new TextView(context);
-		title.setText("Aptitude App");
+		title.setText("Aptitude Guru");
 		title.setBackgroundColor(Color.DKGRAY);
 		title.setPadding(10, 10, 10, 10);
 		title.setGravity(Gravity.CENTER);
@@ -44,7 +44,7 @@ public class AndroidDashboardDesignActivity extends Activity
 		alertDialogBuilder.setCustomTitle(title);
 
 		alertDialogBuilder
-				.setMessage("Click yes to exit!")
+				.setMessage("Do you wish to exit?")
 				.setCancelable(false)
 				.setPositiveButton("Yes",
 						new DialogInterface.OnClickListener() 
@@ -90,7 +90,7 @@ public class AndroidDashboardDesignActivity extends Activity
 		Button btn_home = (Button) findViewById(R.id.btn_home);
 		Button btn_fav = (Button) findViewById(R.id.btn_fav);
 		Button btn_score = (Button) findViewById(R.id.btn_score);
-		Button btn_soundon = (Button) findViewById(R.id.btn_soundon);
+		Button btn_tutorial = (Button) findViewById(R.id.btn_tutorial);
 		Button btn_about = (Button) findViewById(R.id.btn_about);
 		Button btn_help = (Button) findViewById(R.id.btn_help);
   		
@@ -127,7 +127,8 @@ public class AndroidDashboardDesignActivity extends Activity
 			}
 		});
 
-		btn_soundon.setOnClickListener(new View.OnClickListener() 
+		btn_tutorial.setOnClickListener(new View.OnClickListener() 
+
 		{
 			public void onClick(View view) 
 			{

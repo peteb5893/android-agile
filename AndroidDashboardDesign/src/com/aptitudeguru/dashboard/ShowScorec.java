@@ -33,7 +33,7 @@ public class ShowScorec extends Activity {
         Button btn_score = (Button) findViewById(R.id.btn_score);
         
         // Dashboard Places button
-        Button btn_tutorial = (Button) findViewById(R.id.btn_soundon);
+        Button btn_tutorial = (Button) findViewById(R.id.btn_tutorial);
         
         // Dashboard Events button
         Button btn_about = (Button) findViewById(R.id.btn_about);
