@@ -546,7 +546,7 @@ public class TestPagecpp extends Activity implements OnClickListener
 	        count=r.nextInt(3);
 	        count=count+1;
 	      
-	        t1=(TextView) findViewById(R.id.textView1);
+	        t1=(TextView) findViewById(R.id.noHintQuestionTextView);
 	        t2=(TextView) findViewById(R.id.questrack);
 	        
 	        

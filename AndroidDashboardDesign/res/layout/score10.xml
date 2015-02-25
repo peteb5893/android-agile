@@ -152,7 +152,7 @@
                   android:background="#F8F8F8">
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/noHintQuestionTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -167,8 +167,8 @@
                     android:id="@+id/button1"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_alignLeft="@+id/textView1"
-                    android:layout_below="@+id/textView1"
+                    android:layout_alignLeft="@+id/noHintQuestionTextView"
+                    android:layout_below="@+id/noHintQuestionTextView"
                     android:background="#00ff00" />
 
                 <Button
@@ -211,7 +211,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBaseline="@+id/button2"
                     android:layout_alignBottom="@+id/button2"
-                    android:layout_alignRight="@+id/textView1"
+                    android:layout_alignRight="@+id/noHintQuestionTextView"
                     android:layout_margin="10dp"
                     android:layout_toRightOf="@+id/button2"
                     android:text="Unattempted :"
@@ -224,7 +224,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBaseline="@+id/button3"
                     android:layout_alignBottom="@+id/button3"
-                    android:layout_alignRight="@+id/textView1"
+                    android:layout_alignRight="@+id/noHintQuestionTextView"
                     android:layout_margin="10dp"
                     android:layout_toRightOf="@+id/button3"
                     android:text="Incorrect :"

@@ -28,8 +28,8 @@ import androidhive.dashboard.R;
 public class TestPage extends Activity implements OnClickListener
 
 {
-	TextView t1, t2;
-	RadioButton b1, b2, b3, b4;
+	TextView questionTextView, questionTrack;
+	RadioButton answerOption1, answerOption2, answerOption3, answerOption4;
 	int count = 1;
 	int start = 1;
 	int quesvisible = 0;
@@ -38,7 +38,6 @@ public class TestPage extends Activity implements OnClickListener
 	int b[] = new int[40];
 	int ans[] = new int[40];
 	int ansindex = 0;
-	// NewsFeedActivity n=new NewsFeedActivity();
 	String cat = "";
 	int click = 0;
 	int a[] = new int[40];
@@ -57,12 +56,9 @@ public class TestPage extends Activity implements OnClickListener
 
 	DatabaseHandler db = new DatabaseHandler(this);
 
-	// String category="7777";
 	private CountDownTimer countDownTimer;
-	private CountDownTimer countDownTimer1;
 
 	private boolean timerHasStarted = false;
-	private Button startB;
 	public TextView text;
 	private long startTime = 60 * 20 * 1000;
 	private final long interval = 1 * 1000;
@@ -70,9 +66,6 @@ public class TestPage extends Activity implements OnClickListener
 	private long milifin = 0;
 
 	int k1 = 0;
-
-	// private final long startTime1 =
-	// private final long interval1 = 60*20 * 1000;
 
 	// create button instances
 
@@ -96,17 +89,13 @@ public class TestPage extends Activity implements OnClickListener
 			timerHasStarted = false;
 
 			if (!timerHasStarted) {
-				// countDownTimer.start();
 				countDownTimer = new MyCountDownTimer(starttime1, interval);
 				timerHasStarted = true;
 
 				countDownTimer.start();
-
-				// startB.setText("STOP");
 			} else {
 				countDownTimer.cancel();
 				timerHasStarted = false;
-				// startB.setText("RESTART");
 			}
 
 			// Activity being restarted from stopped state
@@ -150,39 +139,38 @@ public class TestPage extends Activity implements OnClickListener
 			btn_next.setVisibility(View.VISIBLE);
 			btn_prev.setVisibility(View.VISIBLE);
 		}
-		b1.setChecked(false);
-		b2.setChecked(false);
-		b3.setChecked(false);
-		b4.setChecked(false);
+		answerOption1.setChecked(false);
+		answerOption2.setChecked(false);
+		answerOption3.setChecked(false);
+		answerOption4.setChecked(false);
 
 		RadioGroup radiogroup = (RadioGroup) findViewById(R.id.options);
 		radiogroup.clearCheck();
 		int check = b[click];
 		if (check == 1)
-			b1.setChecked(true);
+			answerOption1.setChecked(true);
 		else if (check == 2)
-			b2.setChecked(true);
+			answerOption2.setChecked(true);
 		else if (check == 3)
-			b3.setChecked(true);
+			answerOption3.setChecked(true);
 		else if (check == 4)
-			b4.setChecked(true);
+			answerOption4.setChecked(true);
 		else {
 		}
 
 		QuantsTable q = db.getQuants(j2, cat);
-		// i=i+1;
 		String j = q.getQues();
-		t1.setText(j);
-		t2.setText("   " + (j1 + 1) + "/20");
+		questionTextView.setText(j);
+		questionTrack.setText("   " + (j1 + 1) + "/20");
 		String opt1 = q.getOption1();
 		String opt2 = q.getOption2();
 		String opt3 = q.getOption3();
 		String opt4 = q.getOption4();
 
-		b1.setText(opt1);
-		b2.setText(opt2);
-		b3.setText(opt3);
-		b4.setText(opt4);
+		answerOption1.setText(opt1);
+		answerOption2.setText(opt2);
+		answerOption3.setText(opt3);
+		answerOption4.setText(opt4);
 
 	}
 
@@ -194,10 +182,10 @@ public class TestPage extends Activity implements OnClickListener
 		cat = bundle.getString("cat");
 		start = bundle.getInt("start");
 
-		b1 = (RadioButton) findViewById(R.id.option1);
-		b2 = (RadioButton) findViewById(R.id.option2);
-		b3 = (RadioButton) findViewById(R.id.option3);
-		b4 = (RadioButton) findViewById(R.id.option4);
+		answerOption1 = (RadioButton) findViewById(R.id.option1);
+		answerOption2 = (RadioButton) findViewById(R.id.option2);
+		answerOption3 = (RadioButton) findViewById(R.id.option3);
+		answerOption4 = (RadioButton) findViewById(R.id.option4);
 
 		text = (TextView) this.findViewById(R.id.timer);
 		countDownTimer = new MyCountDownTimer(startTime, interval);
@@ -214,9 +202,6 @@ public class TestPage extends Activity implements OnClickListener
 		title.setTextSize(20);
 		alertDialogBuilder.setCustomTitle(title);
 
-		// set title
-		// alertDialogBuilder.setTitle("Apptitude App");
-
 		// set dialog message
 		alertDialogBuilder
 				.setMessage("Start Test?")
@@ -231,11 +216,9 @@ public class TestPage extends Activity implements OnClickListener
 									countDownTimer.start();
 									k1 = 1;
 									timerHasStarted = true;
-									// startB.setText("STOP");
 								} else {
 									countDownTimer.cancel();
 									timerHasStarted = false;
-									// startB.setText("RESTART");
 								}
 
 								// next
@@ -257,36 +240,38 @@ public class TestPage extends Activity implements OnClickListener
 		// show it
 		alertDialog.show();
 
-		// timer code
-
-		// startB = (Button) this.findViewById(R.id.button);
-		// startB.setOnClickListener( this);
-
-		// text.setText(text.getText() + String.valueOf(startTime / 1000));
-
 		/**
 		 * Creating all buttons instances
 		 * */
-		// Dashboard News feed button
+		// Home button
 		Button btn_home = (Button) findViewById(R.id.btn_home);
+		
+		btn_home.setOnClickListener(new View.OnClickListener() {
 
-		// Dashboard Friends button
+			@Override
+			public void onClick(View view) {
+				Toast.makeText(getApplicationContext(), "You Cannot Exit",
+						Toast.LENGTH_SHORT).show();
+			}
+		});
+
+		// Favourite questions button
 		Button btn_fav = (Button) findViewById(R.id.btn_fav);
 
-		// Dashboard Messages button
+		// Hint button
 		Button btn_hint = (Button) findViewById(R.id.btn_hint);
 
-		// Dashboard Places button
+		// Go To button
 		Button btn_goto = (Button) findViewById(R.id.btn_goto);
 
-		// Dashboard Events button
+		// Help button
 		Button btn_help = (Button) findViewById(R.id.btn_help);
 
 		btn_help.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View view) {
-				// Launching News Feed Screen
+				// Launching Help Screen
 				Intent i = new Intent(getApplicationContext(), help1.class);
 
 				startActivity(i);
@@ -301,7 +286,7 @@ public class TestPage extends Activity implements OnClickListener
 
 			@Override
 			public void onClick(View view) {
-				// Launching News Feed Screen
+				// Launching Pause Screen
 				Intent i = new Intent(getApplicationContext(), TestPause.class);
 				i.putExtra("cat", cat);
 				startActivity(i);
@@ -316,23 +301,20 @@ public class TestPage extends Activity implements OnClickListener
 
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				// RadioButton r1=(RadioButton)findViewById(R.id.option1);
-				if (b1.isChecked()) {
+				if (answerOption1.isChecked()) {
 					b[click] = 1;
 					ans[click] = 1;
 					gotoclick[click] = 1;
-					// //String j=1+"";
-					// btn_cal+j.setBackgroundColor(Color.RED);
 
-				} else if (b2.isChecked()) {
+				} else if (answerOption2.isChecked()) {
 					b[click] = 2;
 					ans[click] = 2;
 					gotoclick[click] = 1;
-				} else if (b3.isChecked()) {
+				} else if (answerOption3.isChecked()) {
 					b[click] = 3;
 					ans[click] = 3;
 					gotoclick[click] = 1;
-				} else if (b4.isChecked()) {
+				} else if (answerOption4.isChecked()) {
 					b[click] = 4;
 					ans[click] = 4;
 					gotoclick[click] = 1;
@@ -359,9 +341,6 @@ public class TestPage extends Activity implements OnClickListener
 				title.setTextColor(Color.WHITE);
 				title.setTextSize(20);
 				alertDialogBuilder.setCustomTitle(title);
-
-				// set title
-				// alertDialogBuilder.setTitle();
 
 				// set dialog message
 				alertDialogBuilder
@@ -421,16 +400,11 @@ public class TestPage extends Activity implements OnClickListener
 			}
 		});
 
-		// Listening Friends button click
+		// Listening for Favourite Question button click
 		btn_fav.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View view) {
-				// Launching News Feed Screen
-				// Intent i = new Intent(getApplicationContext(),
-				// FriendsActivity.class);
-				// startActivity(i);
-
 				int val = a[click];
 				QuantsTable q = db.getQuants(val, cat);
 				String ques = q.getQues();
@@ -449,7 +423,7 @@ public class TestPage extends Activity implements OnClickListener
 			}
 		});
 
-		// Listening Messages button click
+		// Listening for Hint button click
 		btn_hint.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -461,20 +435,18 @@ public class TestPage extends Activity implements OnClickListener
 			}
 		});
 
-		// Listening to Places button click
+		// Listening for Go To button click
 		btn_goto.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View view) {
-				// Launching News Feed Screen
+				// Launching Go To Screen
 				Intent i = new Intent(getApplicationContext(), Calender.class);
 				i.putExtra("gotoclick", gotoclick);
 				i.putExtra("click", click);
 				startActivityForResult(i, STATIC_INTEGER_VALUE);
 			}
 		});
-
-		// Listening to Events button click
 
 		int g = 0;
 		List<QuantsTable> quants = db.getAllQuants(cat);
@@ -496,9 +468,6 @@ public class TestPage extends Activity implements OnClickListener
 					sol = 3;
 				else
 					sol = 4;
-				// int j=r.nextInt(2);
-				// int k=(count+j+1);
-				// count=k;
 				initial[index3] = count;
 				initans[index3] = sol;
 				index3 = index3 + 1;
@@ -508,8 +477,8 @@ public class TestPage extends Activity implements OnClickListener
 		count = r.nextInt(3);
 		count = count + 1;
 
-		t1 = (TextView) findViewById(R.id.textView1);
-		t2 = (TextView) findViewById(R.id.questrack);
+		questionTextView = (TextView) findViewById(R.id.questionTextView);
+		questionTrack = (TextView) findViewById(R.id.questrack);
 
 		btn_next = (Button) findViewById(R.id.btn_next);
 		btn_prev = (Button) findViewById(R.id.btn_prev);
@@ -518,17 +487,17 @@ public class TestPage extends Activity implements OnClickListener
 
 		a[index++] = initial[count];
 		givenans[0] = initans[count];
-		t2.setText("   " + "1/20");
+		questionTrack.setText("   " + "1/20");
 		String j = q.getQues();
 		String opt1 = q.getOption1();
 		String opt2 = q.getOption2();
 		String opt3 = q.getOption3();
 		String opt4 = q.getOption4();
-		t1.setText(j);
-		b1.setText(opt1);
-		b2.setText(opt2);
-		b3.setText(opt3);
-		b4.setText(opt4);
+		questionTextView.setText(j);
+		answerOption1.setText(opt1);
+		answerOption2.setText(opt2);
+		answerOption3.setText(opt3);
+		answerOption4.setText(opt4);
 		btn_next.setVisibility(View.VISIBLE);
 		btn_prev.setVisibility(View.INVISIBLE);
 		for (int x = 1; x < 20; x++) {
@@ -553,47 +522,43 @@ public class TestPage extends Activity implements OnClickListener
 					btn_prev.setEnabled(true);
 					btn_next.setVisibility(View.VISIBLE);
 					btn_prev.setVisibility(View.VISIBLE);
-					b1.setChecked(false);
-					b2.setChecked(false);
-					b3.setChecked(false);
-					b4.setChecked(false);
+					answerOption1.setChecked(false);
+					answerOption2.setChecked(false);
+					answerOption3.setChecked(false);
+					answerOption4.setChecked(false);
 					RadioGroup radiogroup = (RadioGroup) findViewById(R.id.options);
 					radiogroup.clearCheck();
-
-					// radiogroup.setosetOnCheckedChangeListener(this);
 
 					click = click + 1;
 
 					int val = a[click];
 					int check = b[click];
 					if (check == 1)
-						b1.setChecked(true);
+						answerOption1.setChecked(true);
 					else if (check == 2)
-						b2.setChecked(true);
+						answerOption2.setChecked(true);
 					else if (check == 3)
-						b3.setChecked(true);
+						answerOption3.setChecked(true);
 					else if (check == 4)
-						b4.setChecked(true);
+						answerOption4.setChecked(true);
 					else {
 					}
-					t2.setText("   " + (click + 1) + "/20");
+					questionTrack.setText("   " + (click + 1) + "/20");
 
 					QuantsTable q = db.getQuants(val, cat);
 					// i=i+1;
 					String j = q.getQues();
-					t1.setText(j);
+					questionTextView.setText(j);
 
 					String opt1 = q.getOption1();
 					String opt2 = q.getOption2();
 					String opt3 = q.getOption3();
 					String opt4 = q.getOption4();
-					// t1.setText();
-					b1.setText(opt1);
-					b2.setText(opt2);
-					b3.setText(opt3);
-					b4.setText(opt4);
-					// radiogroup.setOnCheckedChangeListener(this);
 
+					answerOption1.setText(opt1);
+					answerOption2.setText(opt2);
+					answerOption3.setText(opt3);
+					answerOption4.setText(opt4);
 				}
 
 			}
@@ -614,10 +579,10 @@ public class TestPage extends Activity implements OnClickListener
 					btn_next.setEnabled(true);
 					btn_next.setVisibility(View.VISIBLE);
 					btn_prev.setVisibility(View.VISIBLE);
-					b1.setChecked(false);
-					b2.setChecked(false);
-					b3.setChecked(false);
-					b4.setChecked(false);
+					answerOption1.setChecked(false);
+					answerOption2.setChecked(false);
+					answerOption3.setChecked(false);
+					answerOption4.setChecked(false);
 					RadioGroup radiogroup = (RadioGroup) findViewById(R.id.options);
 					radiogroup.clearCheck();
 
@@ -625,30 +590,30 @@ public class TestPage extends Activity implements OnClickListener
 					int val = a[click];
 					int check = b[click];
 					if (check == 1)
-						b1.setChecked(true);
+						answerOption1.setChecked(true);
 					else if (check == 2)
-						b2.setChecked(true);
+						answerOption2.setChecked(true);
 					else if (check == 3)
-						b3.setChecked(true);
+						answerOption3.setChecked(true);
 					else if (check == 4)
-						b4.setChecked(true);
+						answerOption4.setChecked(true);
 					else {
 					}
 
 					QuantsTable q = db.getQuants(val, cat);
-					// i=i+1;
+
 					String j = q.getQues();
-					t1.setText(j);
-					t2.setText("   " + (click + 1) + "/20");
+					questionTextView.setText(j);
+					questionTrack.setText("   " + (click + 1) + "/20");
 					String opt1 = q.getOption1();
 					String opt2 = q.getOption2();
 					String opt3 = q.getOption3();
 					String opt4 = q.getOption4();
-					t1.setText(j);
-					b1.setText(opt1);
-					b2.setText(opt2);
-					b3.setText(opt3);
-					b4.setText(opt4);
+					questionTextView.setText(j);
+					answerOption1.setText(opt1);
+					answerOption2.setText(opt2);
+					answerOption3.setText(opt3);
+					answerOption4.setText(opt4);
 
 				}
 			}
@@ -661,11 +626,9 @@ public class TestPage extends Activity implements OnClickListener
 		if (!timerHasStarted) {
 			countDownTimer.start();
 			timerHasStarted = true;
-			// startB.setText("STOP");
 		} else {
 			countDownTimer.cancel();
 			timerHasStarted = false;
-			// startB.setText("RESTART");
 		}
 	}
 
@@ -692,19 +655,16 @@ public class TestPage extends Activity implements OnClickListener
 			title.setTextSize(20);
 			alertDialog.setCustomTitle(title);
 
-			// Setting Dialog Title
-			// alertDialog.setTitle("Apptitude App");
-
 			// Setting Dialog Message
 			alertDialog.setMessage("TIME'S UP");
 
-			// Setting Icon to Dialog
+			// Setting Icon to About
 			alertDialog.setIcon(R.drawable.about);
 
 			// Setting OK Button
 			alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
-					// Write your code here to execute after dialog closed
+					// Executed after dialog is closed (send to ShowScore page)
 					Intent i = new Intent(getApplicationContext(),
 							ShowScore.class);
 					time = text.getText() + "";
@@ -744,10 +704,8 @@ public class TestPage extends Activity implements OnClickListener
 
 			min = minutes;
 			sec = seconds;
-			// tvTimerLabel.setVisibility(View.VISIBLE);
-			text.setText((minutes) + ":" + (seconds) + "");
-			// text.setText("" + millisUntilFinished / 1000);
 
+			text.setText((minutes) + ":" + (seconds) + "");
 		}
 
 	}
