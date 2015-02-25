@@ -11,6 +11,7 @@
     <include
         android:id="@+id/include1"
         android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         layout="@layout/header" />
 
     <LinearLayout
@@ -39,7 +40,7 @@
               android:background="#F8F8F8" >
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/questionTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
