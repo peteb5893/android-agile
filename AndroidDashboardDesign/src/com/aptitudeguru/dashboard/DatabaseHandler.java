@@ -21,9 +21,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	
 	private static final String DATABASE_NAME = "aptitudedatabase";
 
-
-	private static final String TABLE_QUANTS = "quants";
-
+	// table names
+	private static final String TABLE_QUANTS = "quants";	
 	private static final String TABLE_CLANGUAGE = "clanguage";
 	private static final String TABLE_CPPLANGUAGE = "cpplanguage";
 	private static final String TABLE_JAVALANGUAGE = "javalanguage";
@@ -37,12 +36,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private static final String TABLE_SBTABLE = "sbtable";
 	private static final String TABLE_PUZZLETABLE = "PuzzleTable";
 
-
-	private static final String KEY_PUZZLEID = "puzzleid";
-	private static final String KEY_PUZZLEQUES = "puzzleques";
-	private static final String KEY_PUZZLESOL = "sol";
-
-	
+	// score and time variables
 	private static final String KEY_SBID = "sbid";
 	private static final String KEY_SBSECTION = "sbsection";
 	private static final String KEY_SBSUBSECTION = "sbsubsection";
@@ -51,15 +45,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private static final String KEY_SBTT = "sbtt";
 
 	
-	private static final String KEY_QUANTSID = "quantsid";
-	private static final String KEY_QUANTSQUES = "quantsques";
-	private static final String KEY_QUANTSCAT = "quantscat";
+	//answer options
 	private static final String KEY_OPTION1 = "option1";
 	private static final String KEY_OPTION2 = "option2";
 	private static final String KEY_OPTION3 = "option3";
-	private static final String KEY_OPTION4 = "option4";
+	private static final String KEY_OPTION4 = "option4";	
+	
+	// quants table
+	private static final String KEY_QUANTSID = "quantsid";
+	private static final String KEY_QUANTSQUES = "quantsques";
+	private static final String KEY_QUANTSCAT = "quantscat";
 	private static final String KEY_QUANTSSOL = "sol";
-
+	
 	// c language table
 	private static final String KEY_CLANGUAGEID = "cid";
 	private static final String KEY_CLANGUAGEQUES = "cques";
@@ -95,6 +92,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private static final String KEY_OSQUES = "osques";
 	// private static final String KEY_OSCAT = "oscat";
 	private static final String KEY_OSSOL = "sol";
+	
+	//puzzle table
+	private static final String KEY_PUZZLEID = "puzzleid";
+	private static final String KEY_PUZZLEQUES = "puzzleques";
+	private static final String KEY_PUZZLESOL = "sol";
 
 	// dbms table
 	private static final String KEY_DBMSID = "dbmsid";
