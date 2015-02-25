@@ -61,54 +61,45 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private static final String KEY_CLANGUAGEID = "cid";
 	private static final String KEY_CLANGUAGEQUES = "cques";
 	private static final String KEY_CCAT = "ccat";
-	//private static final String KEY_SOL = "sol";
 
 	// cpp language table
 	private static final String KEY_CPPLANGUAGEID = "cppid";
 	private static final String KEY_CPPLANGUAGEQUES = "cppques";
 	private static final String KEY_CPPCAT = "cppcat";
-	//private static final String KEY_SOL = "sol";
 
 	// java language table
 	private static final String KEY_JAVALANGUAGEID = "javaid";
 	private static final String KEY_JAVALANGUAGEQUES = "javaques";
 	private static final String KEY_JAVACAT = "javacat";
-	//private static final String KEY_SOL = "sol";
 
 	// html language table
 	private static final String KEY_HTMLLANGUAGEID = "hmtlid";
 	private static final String KEY_HTMLLANGUAGEQUES = "htmlques";
 	private static final String KEY_HTMLCAT = "htmlcat";
-	//private static final String KEY_SOL = "sol";
 
 	// verbal and logicallanguage table
 	private static final String KEY_VLID = "vlid";
 	private static final String KEY_VLQUES = "vlques";
 	private static final String KEY_VLCAT = "vlcat";
-//	private static final String KEY_SOL = "sol";
 
 	// os table
 	private static final String KEY_OSID = "osid";
 	private static final String KEY_OSQUES = "osques";
 	// private static final String KEY_OSCAT = "oscat";
-//	private static final String KEY_SOL = "sol";
 	
 	//puzzle table
 	private static final String KEY_PUZZLEID = "puzzleid";
 	private static final String KEY_PUZZLEQUES = "puzzleques";
-//	private static final String KEY_SOL = "sol";
 
 	// dbms table
 	private static final String KEY_DBMSID = "dbmsid";
 	private static final String KEY_DBMSQUES = "dbmsques";
 	// private static final String KEY_OSCAT = "oscat";
-//	private static final String KEY_SOL = "sol";
 
 	// dSA table
 	private static final String KEY_DSAID = "dsaid";
 	private static final String KEY_DSAQUES = "dsaques";
 	// private static final String KEY_OSCAT = "oscat";
-//	private static final String KEY_SOL = "sol";
 
 	// tutorial table
 	private static final String KEY_TUTID = "tutorialid";
@@ -119,7 +110,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private static final String KEY_FAVOURITEID = "favouritelid";
 	private static final String KEY_FAVOURITEQUES = "favouriteques";
 	// private static final String KEY_HTMLCAT = "htmlcat";
-//	private static final String KEY_SOL = "sol";
 
 	public DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
