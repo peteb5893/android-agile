@@ -38,7 +38,7 @@ public class Resultos extends Activity {
 		Button btn_score = (Button) findViewById(R.id.btn_score);
 
 		
-		Button btn_tutorial = (Button) findViewById(R.id.btn_soundon);
+		Button btn_tutorial = (Button) findViewById(R.id.btn_tutorial);
 
 		
 		Button btn_about = (Button) findViewById(R.id.btn_about);

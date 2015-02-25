@@ -16,7 +16,7 @@ import androidhive.dashboard.R;
 public class Quantitative extends Activity {
 
 	int start = 1;
-	 final Context context = this;
+	final Context context = this;
 
 	
 	@Override
@@ -30,21 +30,13 @@ public class Quantitative extends Activity {
 	    } 
 		setContentView(R.layout.news_feed_layout);
 
-		
+		// create button views for the action_bar
 		Button btn_home = (Button) findViewById(R.id.btn_home);
-
-	
 		Button btn_fav = (Button) findViewById(R.id.btn_fav);
-
-		
 		Button btn_score = (Button) findViewById(R.id.btn_score);
-
-		
-		Button btn_tutorial = (Button) findViewById(R.id.btn_soundon);
-
-		
+		Button btn_tutorial = (Button) findViewById(R.id.btn_tutorial);
 		Button btn_about = (Button) findViewById(R.id.btn_about);
-	Button btn_help = (Button) findViewById(R.id.btn_help);
+		Button btn_help = (Button) findViewById(R.id.btn_help);
 		
 		btn_help.setOnClickListener(new View.OnClickListener() {
 
@@ -58,7 +50,6 @@ public class Quantitative extends Activity {
 			}
 		});
 		
-
 		
 		btn_home.setOnClickListener(new View.OnClickListener() {
 
@@ -118,10 +109,8 @@ public class Quantitative extends Activity {
 			}
 		});
 
-		
-		Button btn_q1 = (Button) findViewById(R.id.btn_q1);
-
-		
+		// q1 is the Numbers and Simplification Category
+		Button btn_q1 = (Button) findViewById(R.id.btn_q1);	
 		btn_q1.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -133,15 +122,11 @@ public class Quantitative extends Activity {
 						i.putExtra("cat", cat);
 
 						startActivity(i);
-				
-
 			}
 		});
 
-		
+		// q2 is the Square Root and Cube Root Category
 		Button btn_q2 = (Button) findViewById(R.id.btn_q2);
-
-		
 		btn_q2.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -156,10 +141,8 @@ public class Quantitative extends Activity {
 			}
 		});
 
-		
+		// q4 is the Problem on Numbers and Ages Category
 		Button btn_q4 = (Button) findViewById(R.id.btn_q4);
-
-	
 		btn_q4.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -172,10 +155,8 @@ public class Quantitative extends Activity {
 			}
 		});
 
-		
+		// q5 is the Percentage Category
 		Button btn_q5 = (Button) findViewById(R.id.btn_q5);
-
-		
 		btn_q5.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -188,10 +169,8 @@ public class Quantitative extends Activity {
 			}
 		});
 
-		
+		// q6 is the Profit and Loss Category
 		Button btn_q6 = (Button) findViewById(R.id.btn_q6);
-
-		
 		btn_q6.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -204,10 +183,8 @@ public class Quantitative extends Activity {
 			}
 		});
 
-		
+		// q7 is the Ratio and Proportion Category
 		Button btn_q7 = (Button) findViewById(R.id.btn_q7);
-
-	
 		btn_q7.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -220,10 +197,8 @@ public class Quantitative extends Activity {
 			}
 		});
 
-		
+		// q8 is the Partnership Category
 		Button btn_q8 = (Button) findViewById(R.id.btn_q8);
-
-		
 		btn_q8.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -236,10 +211,8 @@ public class Quantitative extends Activity {
 			}
 		});
 
-		
+		// q10 is the Time and Work and Distance
 		Button btn_q10 = (Button) findViewById(R.id.btn_q10);
-
-		
 		btn_q10.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -252,10 +225,8 @@ public class Quantitative extends Activity {
 			}
 		});
 
-		
+		// q11 is the Problem on Trains,Boats and Streams Category
 		Button btn_q11 = (Button) findViewById(R.id.btn_q11);
-
-	
 		btn_q11.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -268,10 +239,8 @@ public class Quantitative extends Activity {
 			}
 		});
 
-	
+		// q12 is the Simple Interest and Compound Interest Category
 		Button btn_q12 = (Button) findViewById(R.id.btn_q12);
-
-		
 		btn_q12.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -284,10 +253,8 @@ public class Quantitative extends Activity {
 			}
 		});
 
-		
-		Button btn_q13 = (Button) findViewById(R.id.btn_q13);
-
-		
+		// q13 is the Area and Volume Category
+		Button btn_q13 = (Button) findViewById(R.id.btn_q13);		
 		btn_q13.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -300,9 +267,8 @@ public class Quantitative extends Activity {
 			}
 		});
 
-		
+		// q15 is the Stocks and Shares Category
 		Button btn_q15 = (Button) findViewById(R.id.btn_q15);
-
 		btn_q15.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -315,9 +281,8 @@ public class Quantitative extends Activity {
 			}
 		});
 		
+		// q16 is the Permutation and Combination Category
 		Button btn_q16 = (Button) findViewById(R.id.btn_q16);
-
-		
 		btn_q16.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -330,10 +295,8 @@ public class Quantitative extends Activity {
 			}
 		});
 
-		
-		Button btn_q17 = (Button) findViewById(R.id.btn_q17);
-
-		
+		// q17 is the Probability Category
+		Button btn_q17 = (Button) findViewById(R.id.btn_q17);		
 		btn_q17.setOnClickListener(new View.OnClickListener() {
 
 			@Override
