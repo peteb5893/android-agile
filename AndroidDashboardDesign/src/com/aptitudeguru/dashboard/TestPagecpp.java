@@ -200,7 +200,7 @@ public class TestPagecpp extends Activity implements OnClickListener
        }
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
-	        setContentView(R.layout.test);
+	        setContentView(R.layout.test_hint);
 	        
 	        Bundle bundle = getIntent().getExtras();
 	         cat = bundle.getString("cat");

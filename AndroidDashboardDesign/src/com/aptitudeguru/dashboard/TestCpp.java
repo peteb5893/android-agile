@@ -33,7 +33,6 @@ public class TestCpp extends Activity {
 	        lbldt.setTextSize((float) 16);
 	        lbldt.setBackgroundColor(Color.LTGRAY);
 	        lbldt.setTypeface(null, 1);
-	        //lbldt.setBackgroundColor(Color.TRANSPARENT);
 	        lbldt.setPadding(30, 0, 0, 0);
 
 
@@ -53,7 +52,6 @@ public class TestCpp extends Activity {
 	        lbltt.setBackgroundColor(Color.LTGRAY);
 	        lbltt.setGravity(Gravity.CENTER);
 	        lbltt.setTypeface(null, 1);
-	       // lbltt.setBackgroundColor(Color.TRANSPARENT);
 	        lbltt.setPadding(30, 0, 20, 0);
 	        tr2.setPadding(0, 1, 0, 1);
 	        tr2.addView(lbltt);
@@ -73,7 +71,6 @@ public class TestCpp extends Activity {
 	        lblsc.setTypeface(null, 1);
 	       
 	        lblsc.setGravity(Gravity.CENTER);
-	        //lblsc.setBackgroundColor(Color.TRANSPARENT);
 	        lblsc.setPadding(30, 0, 20, 0);
 	        tr2.setPadding(0, 1, 0, 1);
 	        tr2.addView(lblsc);
