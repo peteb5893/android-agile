@@ -28,7 +28,7 @@ public class Quantitative extends Activity {
 	        finish(); 
 	        return; 
 	    } 
-		setContentView(R.layout.news_feed_layout);
+		setContentView(R.layout.quant_topics);
 
 		// create button views for the action_bar
 		Button btn_home = (Button) findViewById(R.id.btn_home);
@@ -156,7 +156,7 @@ public class Quantitative extends Activity {
 		});
 
 		// q5 is the Percentage Category
-		Button btn_q5 = (Button) findViewById(R.id.btn_q5);
+		Button btn_q5 = (Button) findViewById(R.id.btn_v5);
 		btn_q5.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -170,7 +170,7 @@ public class Quantitative extends Activity {
 		});
 
 		// q6 is the Profit and Loss Category
-		Button btn_q6 = (Button) findViewById(R.id.btn_q6);
+		Button btn_q6 = (Button) findViewById(R.id.btn_v6);
 		btn_q6.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -184,7 +184,7 @@ public class Quantitative extends Activity {
 		});
 
 		// q7 is the Ratio and Proportion Category
-		Button btn_q7 = (Button) findViewById(R.id.btn_q7);
+		Button btn_q7 = (Button) findViewById(R.id.btn_v7);
 		btn_q7.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -198,7 +198,7 @@ public class Quantitative extends Activity {
 		});
 
 		// q8 is the Partnership Category
-		Button btn_q8 = (Button) findViewById(R.id.btn_q8);
+		Button btn_q8 = (Button) findViewById(R.id.btn_v8);
 		btn_q8.setOnClickListener(new View.OnClickListener() {
 
 			@Override
