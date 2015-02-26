@@ -50,65 +50,56 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private static final String KEY_OPTION2 = "option2";
 	private static final String KEY_OPTION3 = "option3";
 	private static final String KEY_OPTION4 = "option4";	
+	private static final String KEY_SOL = "sol";
 	
 	// quants table
 	private static final String KEY_QUANTSID = "quantsid";
 	private static final String KEY_QUANTSQUES = "quantsques";
-	private static final String KEY_QUANTSCAT = "quantscat";
-	private static final String KEY_QUANTSSOL = "sol";
+	private static final String KEY_QUANTSCAT = "quantscat";	
 	
 	// c language table
 	private static final String KEY_CLANGUAGEID = "cid";
 	private static final String KEY_CLANGUAGEQUES = "cques";
 	private static final String KEY_CCAT = "ccat";
-	private static final String KEY_CSOL = "sol";
 
 	// cpp language table
 	private static final String KEY_CPPLANGUAGEID = "cppid";
 	private static final String KEY_CPPLANGUAGEQUES = "cppques";
 	private static final String KEY_CPPCAT = "cppcat";
-	private static final String KEY_CPPSOL = "sol";
 
 	// java language table
 	private static final String KEY_JAVALANGUAGEID = "javaid";
 	private static final String KEY_JAVALANGUAGEQUES = "javaques";
 	private static final String KEY_JAVACAT = "javacat";
-	private static final String KEY_JAVASOL = "sol";
 
 	// html language table
 	private static final String KEY_HTMLLANGUAGEID = "hmtlid";
 	private static final String KEY_HTMLLANGUAGEQUES = "htmlques";
-	// private static final String KEY_HTMLCAT = "htmlcat";
-	private static final String KEY_HTMLSOL = "sol";
+	private static final String KEY_HTMLCAT = "htmlcat";
 
 	// verbal and logicallanguage table
 	private static final String KEY_VLID = "vlid";
 	private static final String KEY_VLQUES = "vlques";
 	private static final String KEY_VLCAT = "vlcat";
-	private static final String KEY_VLSOL = "sol";
 
 	// os table
 	private static final String KEY_OSID = "osid";
 	private static final String KEY_OSQUES = "osques";
 	// private static final String KEY_OSCAT = "oscat";
-	private static final String KEY_OSSOL = "sol";
 	
 	//puzzle table
 	private static final String KEY_PUZZLEID = "puzzleid";
 	private static final String KEY_PUZZLEQUES = "puzzleques";
-	private static final String KEY_PUZZLESOL = "sol";
 
 	// dbms table
 	private static final String KEY_DBMSID = "dbmsid";
 	private static final String KEY_DBMSQUES = "dbmsques";
 	// private static final String KEY_OSCAT = "oscat";
-	private static final String KEY_DBMSSOL = "sol";
 
 	// dSA table
 	private static final String KEY_DSAID = "dsaid";
 	private static final String KEY_DSAQUES = "dsaques";
 	// private static final String KEY_OSCAT = "oscat";
-	private static final String KEY_DSASOL = "sol";
 
 	// tutorial table
 	private static final String KEY_TUTID = "tutorialid";
@@ -119,7 +110,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private static final String KEY_FAVOURITEID = "favouritelid";
 	private static final String KEY_FAVOURITEQUES = "favouriteques";
 	// private static final String KEY_HTMLCAT = "htmlcat";
-	private static final String KEY_FAVOURITESOL = "sol";
 
 	public DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -132,53 +122,53 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ KEY_QUANTSID + " INTEGER PRIMARY KEY," + KEY_QUANTSQUES
 				+ " TEXT," + KEY_QUANTSCAT + " TEXT," + KEY_OPTION1 + " TEXT,"
 				+ KEY_OPTION2 + " TEXT," + KEY_OPTION3 + " TEXT," + KEY_OPTION4
-				+ " TEXT," + KEY_QUANTSSOL + " TEXT" + ")";
+				+ " TEXT," + KEY_SOL + " TEXT" + ")";
 
 		String CREATE_CLANGUAGE_TABLE = "CREATE TABLE " + TABLE_CLANGUAGE + "("
 				+ KEY_CLANGUAGEID + " INTEGER PRIMARY KEY," + KEY_CLANGUAGEQUES
 				+ " TEXT," + KEY_CCAT + " TEXT," + KEY_OPTION1 + " TEXT,"
 				+ KEY_OPTION2 + " TEXT," + KEY_OPTION3 + " TEXT," + KEY_OPTION4
-				+ " TEXT," + KEY_CSOL + " TEXT" + ")";
+				+ " TEXT," + KEY_SOL + " TEXT" + ")";
 
 		String CREATE_CPPLANGUAGE_TABLE = "CREATE TABLE " + TABLE_CPPLANGUAGE
 				+ "(" + KEY_CPPLANGUAGEID + " INTEGER PRIMARY KEY,"
 				+ KEY_CPPLANGUAGEQUES + " TEXT," + KEY_CPPCAT + " TEXT,"
 				+ KEY_OPTION1 + " TEXT," + KEY_OPTION2 + " TEXT," + KEY_OPTION3
-				+ " TEXT," + KEY_OPTION4 + " TEXT," + KEY_CPPSOL + " TEXT"
+				+ " TEXT," + KEY_OPTION4 + " TEXT," + KEY_SOL + " TEXT"
 				+ ")";
 
 		String CREATE_JAVALANGUAGE_TABLE = "CREATE TABLE " + TABLE_JAVALANGUAGE
 				+ "(" + KEY_JAVALANGUAGEID + " INTEGER PRIMARY KEY,"
 				+ KEY_JAVALANGUAGEQUES + " TEXT," + KEY_JAVACAT + " TEXT,"
 				+ KEY_OPTION1 + " TEXT," + KEY_OPTION2 + " TEXT," + KEY_OPTION3
-				+ " TEXT," + KEY_OPTION4 + " TEXT," + KEY_JAVASOL + " TEXT"
+				+ " TEXT," + KEY_OPTION4 + " TEXT," + KEY_SOL + " TEXT"
 				+ ")";
 		String CREATE_HTMLLANGUAGE_TABLE = "CREATE TABLE " + TABLE_HTMLLANGUAGE
 				+ "(" + KEY_HTMLLANGUAGEID + " INTEGER PRIMARY KEY,"
 				+ KEY_HTMLLANGUAGEQUES + " TEXT," + KEY_OPTION1 + " TEXT,"
 				+ KEY_OPTION2 + " TEXT," + KEY_OPTION3 + " TEXT," + KEY_OPTION4
-				+ " TEXT," + KEY_HTMLSOL + " TEXT" + ")";
+				+ " TEXT," + KEY_SOL + " TEXT" + ")";
 
 		String CREATE_VL_TABLE = "CREATE TABLE " + TABLE_VL + "(" + KEY_VLID
 				+ " INTEGER PRIMARY KEY," + KEY_VLQUES + " TEXT," + KEY_VLCAT
 				+ " TEXT," + KEY_OPTION1 + " TEXT," + KEY_OPTION2 + " TEXT,"
-				+ KEY_OPTION3 + " TEXT," + KEY_OPTION4 + " TEXT," + KEY_VLSOL
+				+ KEY_OPTION3 + " TEXT," + KEY_OPTION4 + " TEXT," + KEY_SOL
 				+ " TEXT" + ")";
 		String CREATE_OS_TABLE = "CREATE TABLE " + TABLE_OS + "(" + KEY_OSID
 				+ " INTEGER PRIMARY KEY," + KEY_OSQUES + " TEXT," + KEY_OPTION1
 				+ " TEXT," + KEY_OPTION2 + " TEXT," + KEY_OPTION3 + " TEXT,"
-				+ KEY_OPTION4 + " TEXT," + KEY_OSSOL + " TEXT" + ")";
+				+ KEY_OPTION4 + " TEXT," + KEY_SOL + " TEXT" + ")";
 
 		String CREATE_DBMS_TABLE = "CREATE TABLE " + TABLE_DBMS + "("
 				+ KEY_DBMSID + " INTEGER PRIMARY KEY," + KEY_DBMSQUES
 				+ " TEXT," + KEY_OPTION1 + " TEXT," + KEY_OPTION2 + " TEXT,"
-				+ KEY_OPTION3 + " TEXT," + KEY_OPTION4 + " TEXT," + KEY_DBMSSOL
+				+ KEY_OPTION3 + " TEXT," + KEY_OPTION4 + " TEXT," + KEY_SOL
 				+ " TEXT" + ")";
 
 		String CREATE_DSA_TABLE = "CREATE TABLE " + TABLE_DSA + "(" + KEY_DSAID
 				+ " INTEGER PRIMARY KEY," + KEY_DSAQUES + " TEXT,"
 				+ KEY_OPTION1 + " TEXT," + KEY_OPTION2 + " TEXT," + KEY_OPTION3
-				+ " TEXT," + KEY_OPTION4 + " TEXT," + KEY_DSASOL + " TEXT"
+				+ " TEXT," + KEY_OPTION4 + " TEXT," + KEY_SOL + " TEXT"
 				+ ")";
 
 		String CREATE_TUTORIAL_TABLE = "CREATE TABLE " + TABLE_TUTORIAL + "("
@@ -189,7 +179,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ KEY_FAVOURITEID + " INTEGER PRIMARY KEY," + KEY_FAVOURITEQUES
 				+ " TEXT," + KEY_OPTION1 + " TEXT," + KEY_OPTION2 + " TEXT,"
 				+ KEY_OPTION3 + " TEXT," + KEY_OPTION4 + " TEXT,"
-				+ KEY_FAVOURITESOL + " TEXT" + ")";
+				+ KEY_SOL + " TEXT" + ")";
 
 		String CREATE_SBTABLE_TABLE = "CREATE TABLE " + TABLE_SBTABLE + "("
 				+ KEY_SBID + " INTEGER PRIMARY KEY," + KEY_SBSECTION + " TEXT,"
@@ -198,7 +188,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		String CREATE_PUZZLE_TABLE = "CREATE TABLE " + TABLE_PUZZLETABLE + "("
 				+ KEY_PUZZLEID + " INTEGER PRIMARY KEY," + KEY_PUZZLEQUES
-				+ " TEXT," + KEY_PUZZLESOL + " TEXT" + ")";
+				+ " TEXT," + KEY_SOL + " TEXT" + ")";
 
 		db.execSQL(CREATE_QUANTS_TABLE);
 		db.execSQL(CREATE_CLANGUAGE_TABLE);
@@ -248,7 +238,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		ContentValues values = new ContentValues();
 		values.put(KEY_PUZZLEQUES, q.getQues()); // Contact Name
 		// values.put(KEY_OSCAT, quants.getCat());
-		values.put(KEY_PUZZLESOL, q.getSol());
+		values.put(KEY_SOL, q.getSol());
 
 		// Contact Phone
 
@@ -292,7 +282,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, q.getOption2());
 		values.put(KEY_OPTION3, q.getOption3());
 		values.put(KEY_OPTION4, q.getOption4());
-		values.put(KEY_FAVOURITESOL, q.getSol());
+		values.put(KEY_SOL, q.getSol());
 		// Contact Phone
 
 		// Inserting Row
@@ -315,7 +305,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, quants.getOption2());
 		values.put(KEY_OPTION3, quants.getOption3());
 		values.put(KEY_OPTION4, quants.getOption4());
-		values.put(KEY_QUANTSSOL, quants.getSol());
+		values.put(KEY_SOL, quants.getSol());
 		// Contact Phone
 		
 		// Inserting Row
@@ -335,7 +325,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, c.getOption2());
 		values.put(KEY_OPTION3, c.getOption3());
 		values.put(KEY_OPTION4, c.getOption4());
-		values.put(KEY_CSOL, c.getSol());
+		values.put(KEY_SOL, c.getSol());
 		// Contact Phone
 
 		// Inserting Row
@@ -356,7 +346,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, cpp.getOption2());
 		values.put(KEY_OPTION3, cpp.getOption3());
 		values.put(KEY_OPTION4, cpp.getOption4());
-		values.put(KEY_CPPSOL, cpp.getSol());
+		values.put(KEY_SOL, cpp.getSol());
 		// Contact Phone
 
 		// Inserting Row
@@ -378,7 +368,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, j.getOption2());
 		values.put(KEY_OPTION3, j.getOption3());
 		values.put(KEY_OPTION4, j.getOption4());
-		values.put(KEY_JAVASOL, j.getSol());
+		values.put(KEY_SOL, j.getSol());
 		// Contact Phone
 
 		// Inserting Row
@@ -400,7 +390,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, j.getOption2());
 		values.put(KEY_OPTION3, j.getOption3());
 		values.put(KEY_OPTION4, j.getOption4());
-		values.put(KEY_HTMLSOL, j.getSol());
+		values.put(KEY_SOL, j.getSol());
 		// Contact Phone
 
 		// Inserting Row
@@ -420,7 +410,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, quants.getOption2());
 		values.put(KEY_OPTION3, quants.getOption3());
 		values.put(KEY_OPTION4, quants.getOption4());
-		values.put(KEY_VLSOL, quants.getSol());
+		values.put(KEY_SOL, quants.getSol());
 		// Contact Phone
 
 		// Inserting Row
@@ -440,7 +430,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, q.getOption2());
 		values.put(KEY_OPTION3, q.getOption3());
 		values.put(KEY_OPTION4, q.getOption4());
-		values.put(KEY_OSSOL, q.getSol());
+		values.put(KEY_SOL, q.getSol());
 		// Contact Phone
 
 		// Inserting Row
@@ -459,7 +449,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, q.getOption2());
 		values.put(KEY_OPTION3, q.getOption3());
 		values.put(KEY_OPTION4, q.getOption4());
-		values.put(KEY_DBMSSOL, q.getSol());
+		values.put(KEY_SOL, q.getSol());
 		// Contact Phone
 
 		// Inserting Row
@@ -478,7 +468,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, q.getOption2());
 		values.put(KEY_OPTION3, q.getOption3());
 		values.put(KEY_OPTION4, q.getOption4());
-		values.put(KEY_DSASOL, q.getSol());
+		values.put(KEY_SOL, q.getSol());
 		// Contact Phone
 
 		// Inserting Row
@@ -511,7 +501,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		// String where = "KEY_QUANTSID=? AND KEY_QUANTSCAT=? ";
 		Cursor cursor = db.query(TABLE_QUANTS, new String[] { KEY_QUANTSID,
 				KEY_QUANTSQUES, KEY_QUANTSCAT, KEY_OPTION1, KEY_OPTION2,
-				KEY_OPTION3, KEY_OPTION4, KEY_QUANTSSOL }, KEY_QUANTSID + "=?"
+				KEY_OPTION3, KEY_OPTION4, KEY_SOL }, KEY_QUANTSID + "=?"
 				+ " AND " + KEY_QUANTSCAT + "=" + "'" + cat + "'",
 				new String[] { String.valueOf(id) }, null, null, null, null);
 		
@@ -532,7 +522,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.query(TABLE_QUANTS, new String[] { KEY_QUANTSID,
 				KEY_QUANTSQUES, KEY_QUANTSCAT, KEY_OPTION1, KEY_OPTION2,
-				KEY_OPTION3, KEY_OPTION4, KEY_QUANTSSOL }, KEY_QUANTSID + "=?",
+				KEY_OPTION3, KEY_OPTION4, KEY_SOL }, KEY_QUANTSID + "=?",
 				new String[] { String.valueOf(id) }, null, null, null, null);
 		
 		if (cursor != null)
@@ -554,7 +544,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		Cursor cursor = db.query(TABLE_CLANGUAGE, new String[] {
 				KEY_CLANGUAGEID,  KEY_CLANGUAGEQUES,KEY_CCAT, KEY_OPTION1,
-				KEY_OPTION2, KEY_OPTION3, KEY_OPTION4, KEY_CSOL },
+				KEY_OPTION2, KEY_OPTION3, KEY_OPTION4, KEY_SOL },
 				KEY_CLANGUAGEID + "=?", new String[] { String.valueOf(id) },
 				null, null, null, null);
 		if (cursor != null)
@@ -573,7 +563,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		Cursor cursor = db.query(TABLE_CLANGUAGE, new String[] {
 				KEY_CLANGUAGEID, KEY_CLANGUAGEQUES, KEY_CCAT, KEY_OPTION1,
-				KEY_OPTION2, KEY_OPTION3, KEY_OPTION4, KEY_CSOL },
+				KEY_OPTION2, KEY_OPTION3, KEY_OPTION4, KEY_SOL },
 				KEY_CLANGUAGEID + "=?" 	+ " AND " + KEY_CCAT + "=" + "'" + cat + "'", new String[] { String.valueOf(id) },
 				null, null, null, null);
 		if (cursor != null)
@@ -595,7 +585,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		Cursor cursor = db.query(TABLE_CPPLANGUAGE,
 				new String[] { KEY_CPPLANGUAGEID, KEY_CPPLANGUAGEQUES,
 						KEY_CPPCAT, KEY_OPTION1, KEY_OPTION2, KEY_OPTION3,
-						KEY_OPTION4, KEY_CPPSOL }, KEY_CPPLANGUAGEID + "=?"
+						KEY_OPTION4, KEY_SOL }, KEY_CPPLANGUAGEID + "=?"
 						+ " AND " + KEY_CPPCAT + "=" + "'" + cat + "'",
 				new String[] { String.valueOf(id) }, null, null, null, null);
 		if (cursor != null)
@@ -615,7 +605,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		Cursor cursor = db.query(TABLE_CPPLANGUAGE,
 				new String[] { KEY_CPPLANGUAGEID, KEY_CPPLANGUAGEQUES,
 						KEY_CPPCAT, KEY_OPTION1, KEY_OPTION2, KEY_OPTION3,
-						KEY_OPTION4, KEY_CPPSOL }, KEY_CPPLANGUAGEID + "=?",
+						KEY_OPTION4, KEY_SOL }, KEY_CPPLANGUAGEID + "=?",
 				new String[] { String.valueOf(id) }, null, null, null, null);
 		if (cursor != null)
 			cursor.moveToFirst();
@@ -635,7 +625,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		Cursor cursor = db.query(TABLE_JAVALANGUAGE,
 				new String[] { KEY_JAVALANGUAGEID, 
 						KEY_JAVALANGUAGEQUES,KEY_JAVACAT, KEY_OPTION1, KEY_OPTION2,
-						KEY_OPTION3, KEY_OPTION4, KEY_JAVASOL },
+						KEY_OPTION3, KEY_OPTION4, KEY_SOL },
 				KEY_JAVALANGUAGEID + "=?", new String[] { String.valueOf(id) },
 				null, null, null, null);
 		if (cursor != null)
@@ -655,7 +645,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		Cursor cursor = db.query(TABLE_JAVALANGUAGE,
 				new String[] { KEY_JAVALANGUAGEID, 
 						KEY_JAVALANGUAGEQUES,KEY_JAVACAT, KEY_OPTION1, KEY_OPTION2,
-						KEY_OPTION3, KEY_OPTION4, KEY_JAVASOL },
+						KEY_OPTION3, KEY_OPTION4, KEY_SOL },
 				KEY_JAVALANGUAGEID + "=?" + " AND " + KEY_JAVACAT + "=" + "'" + cat + "'", new String[] { String.valueOf(id) },
 				null, null, null, null);
 		
@@ -677,7 +667,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		Cursor cursor = db.query(TABLE_HTMLLANGUAGE, new String[] {
 				KEY_HTMLLANGUAGEID, KEY_HTMLLANGUAGEQUES, KEY_OPTION1,
-				KEY_OPTION2, KEY_OPTION3, KEY_OPTION4, KEY_HTMLSOL },
+				KEY_OPTION2, KEY_OPTION3, KEY_OPTION4, KEY_SOL },
 				KEY_HTMLLANGUAGEID + "=?", new String[] { String.valueOf(id) },
 				null, null, null, null);
 		if (cursor != null)
@@ -696,7 +686,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		Cursor cursor = db.query(TABLE_VL, new String[] { KEY_VLID, KEY_VLQUES,
 				KEY_VLCAT, KEY_OPTION1, KEY_OPTION2, KEY_OPTION3, KEY_OPTION4,
-				KEY_VLSOL }, KEY_VLID + "=?" + " AND " + KEY_VLCAT + "=" + "'"
+				KEY_SOL }, KEY_VLID + "=?" + " AND " + KEY_VLCAT + "=" + "'"
 				+ cat + "'", new String[] { String.valueOf(id) }, null, null,
 				null, null);
 		if (cursor != null)
@@ -715,7 +705,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		Cursor cursor = db.query(TABLE_VL, new String[] { KEY_VLID, KEY_VLQUES,
 				KEY_VLCAT, KEY_OPTION1, KEY_OPTION2, KEY_OPTION3, KEY_OPTION4,
-				KEY_VLSOL }, KEY_VLID + "=?",
+				KEY_SOL }, KEY_VLID + "=?",
 				new String[] { String.valueOf(id) }, null, null, null, null);
 		if (cursor != null)
 			cursor.moveToFirst();
@@ -734,7 +724,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		Cursor cursor = db.query(TABLE_OS,
 				new String[] { KEY_OSID, KEY_OSQUES, KEY_OPTION1, KEY_OPTION2,
-						KEY_OPTION3, KEY_OPTION4, KEY_OSSOL }, KEY_OSID + "=?",
+						KEY_OPTION3, KEY_OPTION4, KEY_SOL }, KEY_OSID + "=?",
 				new String[] { String.valueOf(id) }, null, null, null, null);
 		if (cursor != null)
 			cursor.moveToFirst();
@@ -751,7 +741,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		SQLiteDatabase db = this.getReadableDatabase();
 
 		Cursor cursor = db.query(TABLE_PUZZLETABLE, new String[] {
-				KEY_PUZZLEID, KEY_PUZZLEQUES, KEY_PUZZLESOL }, KEY_PUZZLEID
+				KEY_PUZZLEID, KEY_PUZZLEQUES, KEY_SOL }, KEY_PUZZLEID
 				+ "=?", new String[] { String.valueOf(id) }, null, null, null,
 				null);
 		if (cursor != null)
@@ -769,7 +759,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		Cursor cursor = db.query(TABLE_DBMS, new String[] { KEY_DBMSID,
 				KEY_DBMSQUES, KEY_OPTION1, KEY_OPTION2, KEY_OPTION3,
-				KEY_OPTION4, KEY_DBMSSOL }, KEY_DBMSID + "=?",
+				KEY_OPTION4, KEY_SOL }, KEY_DBMSID + "=?",
 				new String[] { String.valueOf(id) }, null, null, null, null);
 		if (cursor != null)
 			cursor.moveToFirst();
@@ -787,7 +777,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		Cursor cursor = db.query(TABLE_DSA, new String[] { KEY_DSAID,
 				KEY_DSAQUES, KEY_OPTION1, KEY_OPTION2, KEY_OPTION3,
-				KEY_OPTION4, KEY_DSASOL }, KEY_DSAID + "=?",
+				KEY_OPTION4, KEY_SOL }, KEY_DSAID + "=?",
 				new String[] { String.valueOf(id) }, null, null, null, null);
 		if (cursor != null)
 			cursor.moveToFirst();
@@ -809,7 +799,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		Cursor cursor = db.query(TABLE_FAVOURITE, new String[] {
 				KEY_FAVOURITEID, KEY_FAVOURITEQUES, KEY_OPTION1, KEY_OPTION2,
-				KEY_OPTION3, KEY_OPTION4, KEY_FAVOURITESOL }, KEY_FAVOURITEID
+				KEY_OPTION3, KEY_OPTION4, KEY_SOL }, KEY_FAVOURITEID
 				+ "=?", new String[] { String.valueOf(id) }, null, null, null,
 				null);
 		if (cursor != null)
@@ -1359,7 +1349,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, quants.getOption2());
 		values.put(KEY_OPTION3, quants.getOption3());
 		values.put(KEY_OPTION4, quants.getOption4());
-		values.put(KEY_QUANTSSOL, quants.getSol());
+		values.put(KEY_SOL, quants.getSol());
 
 		// updating row
 		return db.update(TABLE_QUANTS, values, KEY_QUANTSID + " = ?",
@@ -1377,7 +1367,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, c.getOption2());
 		values.put(KEY_OPTION3, c.getOption3());
 		values.put(KEY_OPTION4, c.getOption4());
-		values.put(KEY_CPPSOL, c.getSol());
+		values.put(KEY_SOL, c.getSol());
 
 		// updating row
 		return db.update(TABLE_CLANGUAGE, values, KEY_CLANGUAGEID + " = ?",
@@ -1395,7 +1385,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, c.getOption2());
 		values.put(KEY_OPTION3, c.getOption3());
 		values.put(KEY_OPTION4, c.getOption4());
-		values.put(KEY_CPPSOL, c.getSol());
+		values.put(KEY_SOL, c.getSol());
 
 		// updating row
 		return db.update(TABLE_CPPLANGUAGE, values, KEY_CPPLANGUAGEID + " = ?",
@@ -1413,7 +1403,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, c.getOption2());
 		values.put(KEY_OPTION3, c.getOption3());
 		values.put(KEY_OPTION4, c.getOption4());
-		values.put(KEY_JAVASOL, c.getSol());
+		values.put(KEY_SOL, c.getSol());
 
 		// updating row
 		return db.update(TABLE_JAVALANGUAGE, values, KEY_JAVALANGUAGEID
@@ -1431,7 +1421,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, c.getOption2());
 		values.put(KEY_OPTION3, c.getOption3());
 		values.put(KEY_OPTION4, c.getOption4());
-		values.put(KEY_HTMLSOL, c.getSol());
+		values.put(KEY_SOL, c.getSol());
 
 		// updating row
 		return db.update(TABLE_HTMLLANGUAGE, values, KEY_HTMLLANGUAGEID
@@ -1449,7 +1439,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, quants.getOption2());
 		values.put(KEY_OPTION3, quants.getOption3());
 		values.put(KEY_OPTION4, quants.getOption4());
-		values.put(KEY_VLSOL, quants.getSol());
+		values.put(KEY_SOL, quants.getSol());
 
 		// updating row
 		return db.update(TABLE_VL, values, KEY_VLID + " = ?",
@@ -1467,7 +1457,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, q.getOption2());
 		values.put(KEY_OPTION3, q.getOption3());
 		values.put(KEY_OPTION4, q.getOption4());
-		values.put(KEY_OSSOL, q.getSol());
+		values.put(KEY_SOL, q.getSol());
 
 		// updating row
 		return db.update(TABLE_OS, values, KEY_OSID + " = ?",
@@ -1485,7 +1475,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, q.getOption2());
 		values.put(KEY_OPTION3, q.getOption3());
 		values.put(KEY_OPTION4, q.getOption4());
-		values.put(KEY_DBMSSOL, q.getSol());
+		values.put(KEY_SOL, q.getSol());
 
 		// updating row
 		return db.update(TABLE_DBMS, values, KEY_DBMSID + " = ?",
@@ -1503,7 +1493,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_OPTION2, q.getOption2());
 		values.put(KEY_OPTION3, q.getOption3());
 		values.put(KEY_OPTION4, q.getOption4());
-		values.put(KEY_DSASOL, q.getSol());
+		values.put(KEY_SOL, q.getSol());
 
 		// updating row
 		return db.update(TABLE_DBMS, values, KEY_DSAID + " = ?",
