@@ -3,7 +3,6 @@ package com.aptitudeguru.dashboard;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Random;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -12,7 +11,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,14 +18,11 @@ import android.widget.Button;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
 import android.widget.TextView;
 import android.widget.Toast;
 import androidhive.dashboard.R;
 
-public class TestPage extends Activity implements OnClickListener
-
-{
+public class TestPage extends Activity implements OnClickListener {
 	TextView questionTextView, questionTrack;
 	RadioButton answerOption1, answerOption2, answerOption3, answerOption4;
 	int count = 1;
@@ -85,13 +80,12 @@ public class TestPage extends Activity implements OnClickListener
 		super.onResume();
 		countDownTimer.cancel();
 
-		if (k1 == 1) {
+		if (k1==1){
 			timerHasStarted = false;
 
 			if (!timerHasStarted) {
 				countDownTimer = new MyCountDownTimer(starttime1, interval);
 				timerHasStarted = true;
-
 				countDownTimer.start();
 			} else {
 				countDownTimer.cancel();
@@ -109,17 +103,16 @@ public class TestPage extends Activity implements OnClickListener
 	}
 
 	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	public void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
 		super.onActivityResult(requestCode, resultCode, data);
 		String extraData = data.getStringExtra("ComingFrom");
 		int j1 = Integer.parseInt(extraData);
 
 		int j2 = a[j1];
 		click = j1;
-
 		if (click == 0) {
 			btn_prev.setEnabled(false);
-
 			btn_prev.setVisibility(View.INVISIBLE);
 		} else {
 			btn_next.setEnabled(true);
@@ -130,10 +123,7 @@ public class TestPage extends Activity implements OnClickListener
 		if (click == 19) {
 			btn_next.setEnabled(false);
 			btn_next.setVisibility(View.INVISIBLE);
-
-		}
-
-		else {
+		} else {
 			btn_prev.setEnabled(true);
 			btn_next.setEnabled(true);
 			btn_next.setVisibility(View.VISIBLE);
@@ -155,13 +145,12 @@ public class TestPage extends Activity implements OnClickListener
 			answerOption3.setChecked(true);
 		else if (check == 4)
 			answerOption4.setChecked(true);
-		else {
-		}
+		else {}
 
 		QuantsTable q = db.getQuants(j2, cat);
 		String j = q.getQues();
 		questionTextView.setText(j);
-		questionTrack.setText("   " + (j1 + 1) + "/20");
+		questionTrack.setText("   " + (j1+1) + "/20");
 		String opt1 = q.getOption1();
 		String opt2 = q.getOption2();
 		String opt3 = q.getOption3();
@@ -171,7 +160,6 @@ public class TestPage extends Activity implements OnClickListener
 		answerOption2.setText(opt2);
 		answerOption3.setText(opt3);
 		answerOption4.setText(opt4);
-
 	}
 
 	public void onCreate(Bundle savedInstanceState) {
@@ -190,8 +178,7 @@ public class TestPage extends Activity implements OnClickListener
 		text = (TextView) this.findViewById(R.id.timer);
 		countDownTimer = new MyCountDownTimer(startTime, interval);
 
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-				context);
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 
 		TextView title = new TextView(context);
 		title.setText("Aptitude App");
@@ -204,35 +191,31 @@ public class TestPage extends Activity implements OnClickListener
 
 		// set dialog message
 		alertDialogBuilder
-				.setMessage("Start Test?")
-				.setCancelable(false)
-				.setPositiveButton("Yes",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								// if this button is clicked, close
-								// current activity
+		.setMessage("Start Test?")
+		.setCancelable(false)
+		.setPositiveButton("Yes",
+				new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+				// if this button is clicked, close current activity
+				if (!timerHasStarted) {
+					countDownTimer.start();
+					k1 = 1;
+					timerHasStarted = true;
+				} else {
+					countDownTimer.cancel();
+					timerHasStarted = false;
+				}
+				// next
+				dialog.cancel();
+			}
+		})
+		.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+				// if this button is clicked, just close the dialog box and do nothing
 
-								if (!timerHasStarted) {
-									countDownTimer.start();
-									k1 = 1;
-									timerHasStarted = true;
-								} else {
-									countDownTimer.cancel();
-									timerHasStarted = false;
-								}
-
-								// next
-								dialog.cancel();
-							}
-						})
-				.setNegativeButton("No", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-						// if this button is clicked, just close
-						// the dialog box and do nothing
-
-						TestPage.this.finish();
-					}
-				});
+				TestPage.this.finish();
+			}
+		});
 
 		// create alert dialog
 		AlertDialog alertDialog = alertDialogBuilder.create();
@@ -245,7 +228,7 @@ public class TestPage extends Activity implements OnClickListener
 		 * */
 		// Home button
 		Button btn_home = (Button) findViewById(R.id.btn_home);
-		
+
 		btn_home.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -278,9 +261,10 @@ public class TestPage extends Activity implements OnClickListener
 			}
 		});
 
+		// Finish Button
 		Button btn_finish = (Button) findViewById(R.id.btn_finish);
 
-		// PAUSE TEST CODE
+		// Pause Button
 		Button btn_pause = (Button) findViewById(R.id.btn_pause);
 		btn_pause.setOnClickListener(new View.OnClickListener() {
 
@@ -305,7 +289,6 @@ public class TestPage extends Activity implements OnClickListener
 					b[click] = 1;
 					ans[click] = 1;
 					gotoclick[click] = 1;
-
 				} else if (answerOption2.isChecked()) {
 					b[click] = 2;
 					ans[click] = 2;
@@ -319,10 +302,9 @@ public class TestPage extends Activity implements OnClickListener
 					ans[click] = 4;
 					gotoclick[click] = 1;
 				} else {
+
 				}
-
 			}
-
 		});
 
 		btn_finish.setOnClickListener(new OnClickListener() {
@@ -330,8 +312,7 @@ public class TestPage extends Activity implements OnClickListener
 			@Override
 			public void onClick(View arg0) {
 
-				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-						context);
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 
 				TextView title = new TextView(context);
 				title.setText("Aptitude App");
@@ -344,59 +325,48 @@ public class TestPage extends Activity implements OnClickListener
 
 				// set dialog message
 				alertDialogBuilder
-						.setMessage("Click yes to exit!")
-						.setCancelable(false)
-						.setPositiveButton("Yes",
-								new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog,
-											int id) {
-										// if this button is clicked, close
-										// current activity
-										Intent i = new Intent(
-												getApplicationContext(),
-												ShowScore.class);
-										time = text.getText() + "";
+				.setMessage("Click yes to exit!")
+				.setCancelable(false)
+				.setPositiveButton("Yes",
+						new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,int id) {
+						// if this button is clicked, close current activity
+						Intent i = new Intent(getApplicationContext(),ShowScore.class);
+						time = text.getText() + "";
 
-										sec = sec + 40;
-										String timetaken = min + "." + sec + "";
+						sec = sec + 40;
+						String timetaken = min + "." + sec + "";
 
-										double timetak = Float
-												.parseFloat(timetaken);
+						double timetak = Float.parseFloat(timetaken);
 
-										double tt = 20.00 - timetak;
+						double tt = 20.00 - timetak;
 
-										DecimalFormat df = new DecimalFormat(
-												"00.00");
-										String j = df.format(tt);
+						DecimalFormat df = new DecimalFormat("00.00");
+						String j = df.format(tt);
 
-										i.putExtra("score", ans);
-										i.putExtra("givenans", givenans);
-										i.putExtra("allid", a);
-										i.putExtra("tt", j);
-										i.putExtra("category", cat);
+						i.putExtra("score", ans);
+						i.putExtra("givenans", givenans);
+						i.putExtra("allid", a);
+						i.putExtra("tt", j);
+						i.putExtra("category", cat);
 
-										startActivity(i);
-										TestPage.this.finish();
-									}
-								})
-						.setNegativeButton("No",
-								new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog,
-											int id) {
-										// if this button is clicked, just close
-										// the dialog box and do nothing
-										dialog.cancel();
-
-									}
-								});
+						startActivity(i);
+						TestPage.this.finish();
+					}
+				})
+				.setNegativeButton("No",
+						new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,int id) {
+						// if this button is clicked, just close the dialog box and do nothing
+						dialog.cancel();
+					}
+				});
 
 				// create alert dialog
 				AlertDialog alertDialog = alertDialogBuilder.create();
 
 				// show it
-
 				alertDialog.show();
-
 			}
 		});
 
@@ -417,9 +387,6 @@ public class TestPage extends Activity implements OnClickListener
 
 				Toast.makeText(getApplicationContext(), "Added To Favourite",
 						Toast.LENGTH_SHORT).show();
-
-				// show it
-
 			}
 		});
 
@@ -500,7 +467,8 @@ public class TestPage extends Activity implements OnClickListener
 		answerOption4.setText(opt4);
 		btn_next.setVisibility(View.VISIBLE);
 		btn_prev.setVisibility(View.INVISIBLE);
-		for (int x = 1; x < 20; x++) {
+		for (int x = 1; x < 20; x++)
+		{
 			int k = (count + 1);
 			count = k;
 			a[index] = initial[k];
@@ -512,7 +480,8 @@ public class TestPage extends Activity implements OnClickListener
 
 			@Override
 			public void onClick(View view) {
-				if (click == (19)) {
+				if (click == (19))
+				{
 					btn_next.setEnabled(false);
 					btn_next.setVisibility(View.INVISIBLE);
 
@@ -546,7 +515,7 @@ public class TestPage extends Activity implements OnClickListener
 					questionTrack.setText("   " + (click + 1) + "/20");
 
 					QuantsTable q = db.getQuants(val, cat);
-					// i=i+1;
+
 					String j = q.getQues();
 					questionTextView.setText(j);
 
@@ -560,18 +529,17 @@ public class TestPage extends Activity implements OnClickListener
 					answerOption3.setText(opt3);
 					answerOption4.setText(opt4);
 				}
-
 			}
 		});
-		// prev
+
 		btn_prev.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View view) {
-				if (click == 0) {
+				if (click == 0)
+				{
 					btn_prev.setEnabled(false);
 					btn_prev.setVisibility(View.INVISIBLE);
-
 				} else {
 
 					btn_prev.setEnabled(true);
@@ -598,6 +566,7 @@ public class TestPage extends Activity implements OnClickListener
 					else if (check == 4)
 						answerOption4.setChecked(true);
 					else {
+
 					}
 
 					QuantsTable q = db.getQuants(val, cat);
@@ -614,14 +583,11 @@ public class TestPage extends Activity implements OnClickListener
 					answerOption2.setText(opt2);
 					answerOption3.setText(opt3);
 					answerOption4.setText(opt4);
-
 				}
 			}
 		});
-
 	}
 
-	// timer
 	public void onClick(View v) {
 		if (!timerHasStarted) {
 			countDownTimer.start();
@@ -643,8 +609,7 @@ public class TestPage extends Activity implements OnClickListener
 		@Override
 		public void onFinish() {
 			text.setText("Time's up!");
-			AlertDialog alertDialog = new AlertDialog.Builder(TestPage.this)
-					.create();
+			AlertDialog alertDialog = new AlertDialog.Builder(TestPage.this).create();
 
 			TextView title = new TextView(context);
 			title.setText("Aptitude App");
@@ -707,7 +672,5 @@ public class TestPage extends Activity implements OnClickListener
 
 			text.setText((minutes) + ":" + (seconds) + "");
 		}
-
 	}
-
 }
