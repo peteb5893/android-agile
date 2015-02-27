@@ -164,7 +164,7 @@ Button btn_help = (Button) findViewById(R.id.btn_help);
 		});
 
 	 
-		Button btn_q5 = (Button) findViewById(R.id.btn_v5);
+		Button btn_q5 = (Button) findViewById(R.id.btn_q5);
 
 		 
 		btn_q5.setOnClickListener(new View.OnClickListener() {
@@ -180,7 +180,7 @@ Button btn_help = (Button) findViewById(R.id.btn_help);
 		});
 
 	 
-		Button btn_q6 = (Button) findViewById(R.id.btn_v6);
+		Button btn_q6 = (Button) findViewById(R.id.btn_q6);
 
 		 
 		btn_q6.setOnClickListener(new View.OnClickListener() {
@@ -196,7 +196,7 @@ Button btn_help = (Button) findViewById(R.id.btn_help);
 		});
 
 	 
-		Button btn_q7 = (Button) findViewById(R.id.btn_v7);
+		Button btn_q7 = (Button) findViewById(R.id.btn_q7);
 
 		 
 		btn_q7.setOnClickListener(new View.OnClickListener() {
@@ -212,7 +212,7 @@ Button btn_help = (Button) findViewById(R.id.btn_help);
 		});
 
 	 
-		Button btn_q8 = (Button) findViewById(R.id.btn_v8);
+		Button btn_q8 = (Button) findViewById(R.id.btn_q8);
 
 		 
 		btn_q8.setOnClickListener(new View.OnClickListener() {
