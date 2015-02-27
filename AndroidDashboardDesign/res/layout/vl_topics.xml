@@ -94,22 +94,6 @@
                     android:background="@drawable/shape"
                     android:text="@string/v7" />
 
-                <Button
-                    android:id="@+id/btn_v8"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_gravity="right"
-                    android:background="@drawable/shape"
-                    android:text="@string/v8" />
-
-                <Button
-                    android:id="@+id/btn_v9"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_gravity="right"
-                    android:background="@drawable/shape"
-                    android:text="@string/v9" />
-
             </LinearLayout>
 
         </ScrollView>

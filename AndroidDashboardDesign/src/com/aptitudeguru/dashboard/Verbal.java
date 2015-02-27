@@ -205,35 +205,5 @@ public class Verbal extends Activity {
 				startActivity(i);
 			}
 		});
-		
-		// v8 is the Data Sufficiency Category
-		Button btn_v8 = (Button) findViewById(R.id.btn_v8);	
-		btn_v8.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				String cat = "v8";
-				
-				Intent i = new Intent(getApplicationContext(), TestPagevl.class);
-				i.putExtra("cat", cat);
-
-				startActivity(i);
-			}
-		});
-		
-		// v9 is the Cause And Effects Category
-		Button btn_v9 = (Button) findViewById(R.id.btn_v9);	
-		btn_v9.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				String cat = "v9";
-				
-				Intent i = new Intent(getApplicationContext(), TestPagevl.class);
-				i.putExtra("cat", cat);
-
-				startActivity(i);
-			}
-		});
 	}
 }
