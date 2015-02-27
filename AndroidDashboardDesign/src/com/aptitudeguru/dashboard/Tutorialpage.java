@@ -521,7 +521,7 @@ public class Tutorialpage extends Activity implements OnTouchListener {
 					
 	    			}
 	    				
-	    		});
+	    		 });
 	    		
 	    		
 	    		

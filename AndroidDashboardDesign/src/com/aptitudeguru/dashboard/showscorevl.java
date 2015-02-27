@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -23,7 +22,7 @@ public class showscorevl extends Activity {
         int correct=0,incorrect=0,unattempt=0;
         
         
-   Button btn_home = (Button) findViewById(R.id.btn_home);
+        Button btn_home = (Button) findViewById(R.id.btn_home);
         
        
         Button btn_fav = (Button) findViewById(R.id.btn_fav);
@@ -36,7 +35,8 @@ public class showscorevl extends Activity {
         
    
         Button btn_about = (Button) findViewById(R.id.btn_about);
-Button btn_help = (Button) findViewById(R.id.btn_help);
+        
+        Button btn_help = (Button) findViewById(R.id.btn_help);
 		
 		btn_help.setOnClickListener(new View.OnClickListener() {
 
@@ -48,10 +48,7 @@ Button btn_help = (Button) findViewById(R.id.btn_help);
 
 				startActivity(i);
 			}
-		});
-
-        
-       
+		});      
         
         
            btn_home.setOnClickListener(new View.OnClickListener() {
@@ -126,30 +123,30 @@ Button btn_help = (Button) findViewById(R.id.btn_help);
         int score=0;
         int index1=0,index2=0;
       
+        Button buttons[] = new Button[20];
+
+		buttons[0] = (Button) findViewById(R.id.score1);
+		buttons[1] = (Button) findViewById(R.id.score2);
+		buttons[2] = (Button) findViewById(R.id.score3);
+		buttons[3] = (Button) findViewById(R.id.score4);
+		buttons[4] = (Button) findViewById(R.id.score5);
+		buttons[5] = (Button) findViewById(R.id.score6);
+		buttons[6] = (Button) findViewById(R.id.score7);
+		buttons[7] = (Button) findViewById(R.id.score8);
+		buttons[8] = (Button) findViewById(R.id.score9);
+		buttons[9] = (Button) findViewById(R.id.score10);
+		buttons[10] = (Button) findViewById(R.id.score11);
+		buttons[11] = (Button) findViewById(R.id.score12);
+		buttons[12] = (Button) findViewById(R.id.score13);
+		buttons[13] = (Button) findViewById(R.id.score14);
+		buttons[14] = (Button) findViewById(R.id.score15);
+		buttons[15] = (Button) findViewById(R.id.score16);
+		buttons[16] = (Button) findViewById(R.id.score17);
+		buttons[17] = (Button) findViewById(R.id.score18);
+		buttons[18] = (Button) findViewById(R.id.score19);
+		buttons[19] = (Button) findViewById(R.id.score20);        
         
-        
-        
-        
-        Button btn_score1 = (Button) findViewById(R.id.score1);
-        Button btn_score2 = (Button) findViewById(R.id.score2);
-        Button btn_score3 = (Button) findViewById(R.id.score3);
-        Button btn_score4 = (Button) findViewById(R.id.score4);
-        Button btn_score5 = (Button) findViewById(R.id.score5);
-        Button btn_score6 = (Button) findViewById(R.id.score6);
-        Button btn_score7 = (Button) findViewById(R.id.score7);
-        Button btn_score8 = (Button) findViewById(R.id.score8);
-        Button btn_score9 = (Button) findViewById(R.id.score9);
-        Button btn_score10 = (Button) findViewById(R.id.score10);
-        Button btn_score11 = (Button) findViewById(R.id.score11);
-        Button btn_score12 = (Button) findViewById(R.id.score12);
-        Button btn_score13 = (Button) findViewById(R.id.score13);
-        Button btn_score14 = (Button) findViewById(R.id.score14);
-        Button btn_score15 = (Button) findViewById(R.id.score15);
-        Button btn_score16 = (Button) findViewById(R.id.score16);
-        Button btn_score17 = (Button) findViewById(R.id.score17);
-        Button btn_score18 = (Button) findViewById(R.id.score18);
-        Button btn_score19 = (Button) findViewById(R.id.score19);
-        Button btn_score20= (Button) findViewById(R.id.score20);
+
         
         for(int i=0;i<20;i++)
         {
@@ -162,617 +159,55 @@ Button btn_help = (Button) findViewById(R.id.btn_help);
         t1.append(score+"/20");
         
       
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM  HH:mm");
-        Date date = new Date();
+       DateFormat dateFormat = new SimpleDateFormat("dd/MM  HH:mm");
+       Date date = new Date();
  	   String date1=dateFormat.format(date);
  	   String date2=date1+"";
  	   String score2=score+"";
- 	  db.addSbtable(new sbtable("vl",cat,date2,score2,timetaken));
- 	   
- 	
+ 	   db.addSbtable(new sbtable("vl",cat,date2,score2,timetaken));
         
       index1=0;
-      index2=0;
-      if(yourans[index1]==0)
-    	  btn_score1.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score1.setBackgroundColor(Color.GREEN);
-      else
-      {
-    	 btn_score1.setBackgroundColor(Color.RED);
-    	 incorrect++;
-      }
-      
-      index1++;
-      index2++;
-      
-      if(yourans[index1]==0)
-    	  btn_score2.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score2.setBackgroundColor(Color.GREEN);
-      else
-      {
-    	 btn_score2.setBackgroundColor(Color.RED);
-      incorrect++;
-    }
-      
-      
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score3.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score3.setBackgroundColor(Color.GREEN);
-      else
-      {
-    	 btn_score3.setBackgroundColor(Color.RED);
-      incorrect++;
-    }
-      index1++;
-      
-      index2++;
-      
-      if(yourans[index1]==0)
-    	  btn_score4.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score4.setBackgroundColor(Color.GREEN);
-      else
-      {
-     	 btn_score4.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score5.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score5.setBackgroundColor(Color.GREEN);
-      else
-      {
-     	 btn_score5.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score6.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score6.setBackgroundColor(Color.GREEN);
-      else
-        
-      {
-     	 btn_score6.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score7.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score7.setBackgroundColor(Color.GREEN);
-      else
-      {
-     	 btn_score7.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score8.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score8.setBackgroundColor(Color.GREEN);
-      else
-      {
-     	 btn_score8.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score9.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score9.setBackgroundColor(Color.GREEN);
-      else
-        
-      {
-     	 btn_score9.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score10.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score10.setBackgroundColor(Color.GREEN);
-      else
-        
-      {
-     	 btn_score10.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score11.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score11.setBackgroundColor(Color.GREEN);
-      else
-      {
-     	 btn_score11.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score12.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score12.setBackgroundColor(Color.GREEN);
-      else
-        
-      {
-     	 btn_score12.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      
-      if(yourans[index1]==0)
-    	  btn_score13.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score13.setBackgroundColor(Color.GREEN);
-      else
-      {
-     	 btn_score13.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score14.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score14.setBackgroundColor(Color.GREEN);
-      else
-        
-      {
-     	 btn_score14.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score15.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score15.setBackgroundColor(Color.GREEN);
-      else
-        
-      {
-     	 btn_score15.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score16.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score16.setBackgroundColor(Color.GREEN);
-      else
-        
-      {
-     	 btn_score16.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score17.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score17.setBackgroundColor(Color.GREEN);
-      else
-        
-      {
-     	 btn_score17.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score18.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score18.setBackgroundColor(Color.GREEN);
-      else
-        
-      {
-     	 btn_score18.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score19.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score19.setBackgroundColor(Color.GREEN);
-      else
-        
-      {
-     	 btn_score19.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      if(yourans[index1]==0)
-    	  btn_score20.setBackgroundColor(Color.BLUE);
-      
-      else if(yourans[index1]==givenans[index2])
-    	  btn_score20.setBackgroundColor(Color.GREEN);
-      else
-        
-      {
-     	 btn_score20.setBackgroundColor(Color.RED);
-       incorrect++;
-     }
-      index1++;
-      
-      index2++;
-      btn_score1.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[0]+"";
-				String current=0+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("current",current);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				  // setResultvl(Resultvl_OK, intent);
-				   startActivity(intent);
-				  
+      index2=0;      
+      //////////////////////////////////////////////////      
+      for (int i = 0; i < 20; i++) {
+			if (yourans[index1] == 0) {
+				buttons[i].setBackgroundColor(Color.BLUE);
+				unattempt++;
+			} else if (yourans[index1] == givenans[index2]) {
+				buttons[i].setBackgroundColor(Color.GREEN);
+				 correct++;
+			} else {
+				buttons[i].setBackgroundColor(Color.RED);
+				incorrect++;
 			}
-		});
-    
-      btn_score2.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[1]+"";
-				String current=1+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				  // setResultvl(Resultvl_OK, intent);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-				  
-			}
-		});
-      btn_score3.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[2]+"";
-				String current=2+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				 //  setResultvl(Resultvl_OK, intent);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-      btn_score4.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[3]+"";
-				String current=3+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				      intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-		btn_score5.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[4]+"";
-				String current=4+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-		btn_score6.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[5]+"";
-				String current=5+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-		btn_score7.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[6]+"";
-				String current=6+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-		btn_score8.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[7]+"";
-				String current=7+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-		btn_score9.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[8]+"";
-				String current=8+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   startActivity(intent);
-			}
-		});
-		btn_score10.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[9]+"";
-				String current=9+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   startActivity(intent);
-			}
-		});
-		btn_score11.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[10]+"";
-				String current=10+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-		btn_score12.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[11]+"";
-				String current=11+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-		btn_score13.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[12]+"";
-				String current=12+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-		btn_score14.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[13]+"";
-				String current=13+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-		btn_score15.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[14]+"";
-				String current=14+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-		btn_score16.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[15]+"";
-				String current=15+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-		btn_score17.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[16]+"";
-				String current=16+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-		btn_score18.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[17]+"";
-				String current=17+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});btn_score19.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[18]+"";
-				String current=18+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
-		});
-		btn_score20.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				String id=allid[19]+"";
-				String current=19+"";
-				Intent intent=new Intent(getApplicationContext(),Resultvl.class);
-				   intent.putExtra("ComingFrom",id);
-				   intent.putExtra("Category",cat);
-				   intent.putExtra("yourans", yourans);
-				   intent.putExtra("givenans", givenans);
-				   intent.putExtra("allid", allid);
-				   intent.putExtra("current",current);
-				   startActivity(intent);
-			}
+
+			index1++;
+			index2++;
+		}
 		
-	});
+		for (int i = 0; i < 20; i++) {
+		final int btn[] = new int[1];
+		btn[0]=i;				
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+
+				@Override
+				public void onClick(View view) {
+					String id = allid[btn[0]] + "";
+					String current = btn[0] + "";
+					Intent intent = new Intent(getApplicationContext(),
+							Resultvl.class);
+					intent.putExtra("ComingFrom", id);
+					intent.putExtra("current", current);
+					intent.putExtra("Category", cat);
+					intent.putExtra("yourans", yourans);
+					intent.putExtra("givenans", givenans);
+					intent.putExtra("allid", allid);
+					// setResult(Result_OK, intent);
+					startActivity(intent);
+				}
+			});
+		}
+
 		incorr.append(incorrect+"");
 		int j=20-(score+incorrect);
 		unattem.append(j+"");

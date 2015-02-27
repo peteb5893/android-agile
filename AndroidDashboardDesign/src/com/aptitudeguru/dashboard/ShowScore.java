@@ -19,6 +19,7 @@ public class ShowScore extends Activity {
 	TextView t1;
 	DatabaseHandler db = new DatabaseHandler(this);
 
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.show_score);
