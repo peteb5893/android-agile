@@ -16,6 +16,9 @@ public class Puzzles extends Activity {
 		setContentView(R.layout.puzzles);
 		
 		mainTextView = (TextView) findViewById(R.id.mainTextView);		
-		mainTextView.setText("Current locale: " + locale.toString());
+		mainTextView.setText("Current Locale: " + locale.toString() +
+							"\nCountry Initials: " + locale.getCountry() + 
+							"\nCountry Name: " + locale.getDisplayCountry() +
+							"\nCountry Language: " + locale.getDisplayLanguage());
 	}
 }
