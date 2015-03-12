@@ -24,5 +24,9 @@ public class Puzzles extends Activity {
 		
 		mainTextView.setText("Current locale: " + locale.toString() + "\nCurrency symbol: " + $curr +"\nWithin a string: $dist $curr test");
 		//mainTextView.setText("$dist $curr whatever else, test");
+		mainTextView.setText("Current Locale: " + locale.toString() +
+							"\nCountry Initials: " + locale.getCountry() + 
+							"\nCountry Name: " + locale.getDisplayCountry() +
+							"\nCountry Language: " + locale.getDisplayLanguage());
 	}
 }
