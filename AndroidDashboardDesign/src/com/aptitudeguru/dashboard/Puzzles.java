@@ -1,5 +1,6 @@
 package com.aptitudeguru.dashboard;
 
+import java.util.Currency;
 import java.util.Locale;
 
 import android.app.Activity;
@@ -15,10 +16,18 @@ public class Puzzles extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.puzzles);
 		
-		mainTextView = (TextView) findViewById(R.id.mainTextView);		
-		mainTextView.setText("Current Locale: " + locale.toString() +
+		mainTextView = (TextView) findViewById(R.id.mainTextView);
+		Currency localCurrency = Currency.getInstance(locale);
+		String currencySymbol = localCurrency.getSymbol();
+		
+		String testString = "Something costs cachemoney 10";
+		String fixedString = testString.replaceAll("cachemoney", currencySymbol);
+		
+		mainTextView.setText(fixedString);
+		
+		/*mainTextView.setText("Current Locale: " + locale.toString() +
 							"\nCountry Initials: " + locale.getCountry() + 
 							"\nCountry Name: " + locale.getDisplayCountry() +
-							"\nCountry Language: " + locale.getDisplayLanguage());
+							"\nCountry Language: " + locale.getDisplayLanguage());*/
 	}
 }
