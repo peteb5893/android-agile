@@ -1,5 +1,8 @@
 package com.aptitudeguru.dashboard;
 
+import java.util.Currency;
+import java.util.Locale;
+
 public class QuantsTable {
 
 	
@@ -12,6 +15,9 @@ public class QuantsTable {
 	String _option4;
 	String _sol;
 
+	Locale locale = Locale.getDefault();
+	Currency localCurrency = Currency.getInstance(locale);
+	String currencySymbol = localCurrency.getSymbol(locale);
 	
 	public QuantsTable() {
 
@@ -22,24 +28,24 @@ public class QuantsTable {
 			String option1, String option2, String option3, String option4,
 			String sol) {
 		this._quantsid = quantssid;
-		this._quantsques = quantsques;
+		this._quantsques = getLocalQues(quantsques);
 		this._quantscat = quantscat;
-		this._option1 = option1;
-		this._option2 = option2;
-		this._option3 = option3;
-		this._option4 = option4;
+		this._option1 = getLocalQues(option1);
+		this._option2 = getLocalQues(option2);
+		this._option3 = getLocalQues(option3);
+		this._option4 = getLocalQues(option4);
 		this._sol = sol;
 	}
 
 	public QuantsTable(String quantsques, String quantscat, String option1,
 			String option2, String option3, String option4, String sol) {
 
-		this._quantsques = quantsques;
+		this._quantsques = getLocalQues(quantsques);
 		this._quantscat = quantscat;
-		this._option1 = option1;
-		this._option2 = option2;
-		this._option3 = option3;
-		this._option4 = option4;
+		this._option1 = getLocalQues(option1);
+		this._option2 = getLocalQues(option2);
+		this._option3 = getLocalQues(option3);
+		this._option4 = getLocalQues(option4);
 		this._sol = sol;
 	}
 
@@ -60,7 +66,15 @@ public class QuantsTable {
 
 	
 	public void setQues(String quantsques) {
-		this._quantsques = quantsques;
+		String lQuest = getLocalQues(quantsques);
+		this._quantsques = lQuest;
+	}
+	
+	public String getLocalQues(String nonLocal){
+		
+		String localisedQuestion = nonLocal.replace("cachemoney.", currencySymbol);
+		localisedQuestion = localisedQuestion.replace("cachemoney", currencySymbol);
+		return localisedQuestion;
 	}
 
 	
@@ -100,19 +114,23 @@ public class QuantsTable {
 
 	
 	public void setOption1(String option1) {
-		this._option1 = option1;
+		String lQuest = getLocalQues(option1);
+		this._option1 = lQuest;
 	}
 
 	public void setOption2(String option2) {
-		this._option2 = option2;
+		String lQuest = getLocalQues(option2);
+		this._option2 = lQuest;
 	}
 
 	public void setOption3(String option3) {
-		this._option3 = option3;
+		String lQuest = getLocalQues(option3);
+		this._option3 = lQuest;
 	}
 
 	public void setOption4(String option4) {
-		this._option4 = option4;
+		String lQuest = getLocalQues(option4);
+		this._option4 = lQuest;
 	}
 
 }
