@@ -24,10 +24,5 @@ public class Puzzles extends Activity {
 		String fixedString = testString.replaceAll("cachemoney", currencySymbol);
 		
 		mainTextView.setText(fixedString);
-		
-		/*mainTextView.setText("Current Locale: " + locale.toString() +
-							"\nCountry Initials: " + locale.getCountry() + 
-							"\nCountry Name: " + locale.getDisplayCountry() +
-							"\nCountry Language: " + locale.getDisplayLanguage());*/
 	}
 }
