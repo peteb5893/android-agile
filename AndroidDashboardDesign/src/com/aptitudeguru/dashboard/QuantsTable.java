@@ -16,9 +16,11 @@ public class QuantsTable {
 	String _sol;
 
 	Locale locale = Locale.getDefault();
+	String currLocale = locale.toString();
 	Currency localCurrency = Currency.getInstance(locale);
 	String currencySymbol = localCurrency.getSymbol(locale);
-	
+	String localSpeed;
+	String localDistance;
 	public QuantsTable() {
 
 	}
@@ -69,11 +71,31 @@ public class QuantsTable {
 		String lQuest = getLocalQues(quantsques);
 		this._quantsques = lQuest;
 	}
-	
+	/*
+	 * Returns localised question by changing placeholder values with localised measurements
+	 * 
+	 */
 	public String getLocalQues(String nonLocal){
 		
 		String localisedQuestion = nonLocal.replace("cachemoney.", currencySymbol);
 		localisedQuestion = localisedQuestion.replace("cachemoney", currencySymbol);
+		if (currLocale.equals("en_GB") || currLocale.equals("en_US"))
+		{
+			localSpeed = "mph";
+			localDistance = "miles";
+		}
+		/*else if (currLocale.equals("en_US"))
+		{
+			localSpeed = "mph";
+			localDistance = "miles";
+		}*/
+		else
+		{
+			localSpeed = "km/h";
+			localDistance = "km";
+		}
+		localisedQuestion = localisedQuestion.replace("speedvar", localSpeed);
+		localisedQuestion = localisedQuestion.replace("distvar", localDistance);
 		return localisedQuestion;
 	}
 
