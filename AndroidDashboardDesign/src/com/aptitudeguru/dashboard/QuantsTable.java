@@ -21,6 +21,7 @@ public class QuantsTable {
 	String currencySymbol = localCurrency.getSymbol(locale);
 	String localSpeed;
 	String localDistance;
+	String coinvar;
 	public QuantsTable() {
 
 	}
@@ -83,14 +84,22 @@ public class QuantsTable {
 		{
 			localSpeed = "mph";
 			localDistance = "miles";
+			
+			if(currLocale.equals("en_GB")){
+				coinvar = "pound";
+			}else if(currLocale.equals("en_US")){
+				coinvar = "dollar";
+			}
 		}
 		else
 		{
 			localSpeed = "km/h";
 			localDistance = "km";
+			coinvar = "euro";
 		}
 		localisedQuestion = localisedQuestion.replace("speedvar", localSpeed);
 		localisedQuestion = localisedQuestion.replace("distvar", localDistance);
+		localisedQuestion = localisedQuestion.replace("coinvar", coinvar);
 		return localisedQuestion;
 	}
 
