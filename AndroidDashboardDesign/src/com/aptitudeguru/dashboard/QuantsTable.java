@@ -84,11 +84,6 @@ public class QuantsTable {
 			localSpeed = "mph";
 			localDistance = "miles";
 		}
-		/*else if (currLocale.equals("en_US"))
-		{
-			localSpeed = "mph";
-			localDistance = "miles";
-		}*/
 		else
 		{
 			localSpeed = "km/h";
