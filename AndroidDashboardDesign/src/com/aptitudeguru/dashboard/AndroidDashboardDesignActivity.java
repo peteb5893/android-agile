@@ -148,7 +148,7 @@ public class AndroidDashboardDesignActivity extends Activity
 		});
 
 		Button btn_quants = (Button) findViewById(R.id.btn_quants);		
-		Button btn_language = (Button) findViewById(R.id.btn_language);
+		Button btn_psychometric = (Button) findViewById(R.id.btn_psychometric);
 		Button btn_verbal = (Button) findViewById(R.id.btn_verbal);
 		Button btn_compfun = (Button) findViewById(R.id.btn_compfun);
 		Button btn_puzzles = (Button) findViewById(R.id.btn_puzzles);
@@ -164,11 +164,11 @@ public class AndroidDashboardDesignActivity extends Activity
 			}
 		});
 
-		btn_language.setOnClickListener(new View.OnClickListener() 
+		btn_psychometric.setOnClickListener(new View.OnClickListener() 
 		{
 			public void onClick(View view) 
 			{	
-				Intent i = new Intent(getApplicationContext(), Language.class);
+				Intent i = new Intent(getApplicationContext(), Psychometric.class);
 				startActivity(i);
 			}
 		});

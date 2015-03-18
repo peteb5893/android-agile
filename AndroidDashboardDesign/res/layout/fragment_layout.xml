@@ -15,10 +15,10 @@
     <!-- Friends Button -->
 
     <Button
-        android:id="@+id/btn_language"
+        android:id="@+id/btn_psychometric"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/language"
-        android:text="@string/language" />
+        android:text="@string/psychometric" />
 
     <!-- Messages Button -->
 

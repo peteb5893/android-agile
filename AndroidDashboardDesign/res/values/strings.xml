@@ -73,6 +73,11 @@
     <string name="v8">Data Sufficiency</string>
     <string name="v9">Cause And Effects</string>
     <string name="head">Aptitude Guru</string>
+    <string name="p1">Psychometric Topic 1</string>
+    <string name="p2">Psychometric Topic 2</string>
+    <string name="p3">Psychometric Topic 3</string>
+    <string name="p4">Psychometric Topic 4</string>
+    <string name="psychometric">Psychometric</string>
     
 
 </resources>

@@ -37,6 +37,12 @@
             android:label="Language"
             android:screenOrientation="portrait" >
         </activity>
+        
+        <activity
+            android:name="com.aptitudeguru.dashboard.Psychometric"
+            android:label="Psychometric"
+            android:screenOrientation="portrait" >
+        </activity>
 
         <!-- Messages Activity -->
         <activity
