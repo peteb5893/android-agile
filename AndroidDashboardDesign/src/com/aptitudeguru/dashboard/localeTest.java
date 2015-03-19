@@ -25,7 +25,7 @@ public class localeTest {
 	public void testCurrencySymbol() {
 		Currency localCurrency = Currency.getInstance(locale);
 		String currencySymbol = localCurrency.getSymbol(locale);
-		assertEquals(currencySymbol, "Â£");
+		assertEquals(currencySymbol, "£");
 	}
 	
 	@Test
@@ -40,6 +40,6 @@ public class localeTest {
 		String sol = "A";
 		
 		QuantsTable quants = new QuantsTable(1, rawQuestion, category, option1, option2, option3, option4, sol);
-		assertEquals(quants.getQues(), "A man buys a bike for Â£ 100");
+		assertEquals(quants.getQues(), "A man buys a bike for £ 100");
 	}
 }
