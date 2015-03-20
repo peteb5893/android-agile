@@ -23,23 +23,9 @@ import android.widget.Toast;
 import androidhive.dashboard.R;
 
 public class TestPagePsych extends Activity implements OnClickListener {
-	TextView questionTextView, questionTrack;
-	RadioButton answerOption1, answerOption2, answerOption3, answerOption4;
-	int count = 1;
-	int start = 1;
-	int quesvisible = 0;
-	static int min = 0, sec = 0;;
-	int index1 = 0, index = 0, index3 = 0;
-	int b[] = new int[40];
-	int ans[] = new int[40];
-	int ansindex = 0;
+	TextView scenario, situation, optionA, optionB, optionC, optionD;
 	String cat = "";
 	int click = 0;
-	int a[] = new int[40];
-	int initial[] = new int[40];
-	int initans[] = new int[40];
-	int givenans[] = new int[40];
-	int gotoclick[] = new int[20];
 	Random r = new Random();
 	int STATIC_INTEGER_VALUE = 1;
 	String PUBLIC_STATIC_STRING_IDENTIFIER;
@@ -51,50 +37,7 @@ public class TestPagePsych extends Activity implements OnClickListener {
 
 	DatabaseHandler db = new DatabaseHandler(this);
 
-//	private CountDownTimer countDownTimer;
-
-//	private boolean timerHasStarted = false;
-	public TextView text;
-//	private long startTime = 60 * 20 * 1000;
-//	private final long interval = 1 * 1000;
-//	private long starttime1 = 60 * 20 * 1000;
-//	private long milifin = 0;
-
 	int k1 = 0;
-
-	// create button instances
-
-//	@Override
-//	protected void onPause() {
-//		// Always call the superclass method first
-//		super.onPause();
-//
-//		countDownTimer.cancel();
-//
-//		// Activity being restarted from stopped state
-//	}
-
-//	@Override
-//	protected void onResume() {
-//		// Always call the superclass method first
-//		super.onResume();
-//		countDownTimer.cancel();
-//
-//		if (k1==1){
-//			timerHasStarted = false;
-//
-//			if (!timerHasStarted) {
-//				countDownTimer = new MyCountDownTimer(starttime1, interval);
-//				timerHasStarted = true;
-//				countDownTimer.start();
-//			} else {
-//				countDownTimer.cancel();
-//				timerHasStarted = false;
-//			}
-//
-//			// Activity being restarted from stopped state
-//		}
-//	}
 
 	@Override
 	public void onBackPressed() {
@@ -109,7 +52,7 @@ public class TestPagePsych extends Activity implements OnClickListener {
 		String extraData = data.getStringExtra("ComingFrom");
 		int j1 = Integer.parseInt(extraData);
 
-		int j2 = a[j1];
+		
 		click = j1;
 		if (click == 0) {
 			btn_prev.setEnabled(false);
@@ -129,54 +72,14 @@ public class TestPagePsych extends Activity implements OnClickListener {
 			btn_next.setVisibility(View.VISIBLE);
 			btn_prev.setVisibility(View.VISIBLE);
 		}
-		answerOption1.setChecked(false);
-		answerOption2.setChecked(false);
-		answerOption3.setChecked(false);
-		answerOption4.setChecked(false);
-
-		RadioGroup radiogroup = (RadioGroup) findViewById(R.id.options);
-		radiogroup.clearCheck();
-		int check = b[click];
-		if (check == 1)
-			answerOption1.setChecked(true);
-		else if (check == 2)
-			answerOption2.setChecked(true);
-		else if (check == 3)
-			answerOption3.setChecked(true);
-		else if (check == 4)
-			answerOption4.setChecked(true);
-		else {}
-
-//		QuantsTable q = db.getQuants(j2, cat);
-//		String j = q.getQues();
-//		questionTextView.setText(j);
-//		questionTrack.setText("   " + (j1+1) + "/20");
-//		String opt1 = q.getOption1();
-//		String opt2 = q.getOption2();
-//		String opt3 = q.getOption3();
-//		String opt4 = q.getOption4();
-//
-//		answerOption1.setText(opt1);
-//		answerOption2.setText(opt2);
-//		answerOption3.setText(opt3);
-//		answerOption4.setText(opt4);
 	}
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.test_hint);
-
+		setContentView(R.layout.psychometric);
+ 
 		Bundle bundle = getIntent().getExtras();
 		cat = bundle.getString("cat");
-		start = bundle.getInt("start");
-
-		answerOption1 = (RadioButton) findViewById(R.id.option1);
-		answerOption2 = (RadioButton) findViewById(R.id.option2);
-		answerOption3 = (RadioButton) findViewById(R.id.option3);
-		answerOption4 = (RadioButton) findViewById(R.id.option4);
-
-		text = (TextView) this.findViewById(R.id.timer);
-//		countDownTimer = new MyCountDownTimer(startTime, interval);
 
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 
@@ -222,198 +125,178 @@ public class TestPagePsych extends Activity implements OnClickListener {
 
 		// show it
 		alertDialog.show();
+		scenario = (TextView) findViewById(R.id.scenario);
+		scenario.setText("test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test ");
+
+		optionD = (TextView) findViewById(R.id.optionD);
+		optionD.setText("test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test "
+				+ "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test ");
 
 		/**
 		 * Creating all buttons instances
 		 * */
 		// Home button
-		Button btn_home = (Button) findViewById(R.id.btn_home);
-
-		btn_home.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				Toast.makeText(getApplicationContext(), "You Cannot Exit",
-						Toast.LENGTH_SHORT).show();
-			}
-		});
-
-		// Favourite questions button
-		Button btn_fav = (Button) findViewById(R.id.btn_fav);
-
-		// Hint button
-		Button btn_hint = (Button) findViewById(R.id.btn_hint);
-
-		// Go To button
-		Button btn_goto = (Button) findViewById(R.id.btn_goto);
-
-		// Help button
-		Button btn_help = (Button) findViewById(R.id.btn_help);
-
-		btn_help.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				// Launching Help Screen
-				Intent i = new Intent(getApplicationContext(), help1.class);
-
-				startActivity(i);
-			}
-		});
-
-		// Finish Button
-		Button btn_finish = (Button) findViewById(R.id.btn_finish);
-
-		// Pause Button
-		Button btn_pause = (Button) findViewById(R.id.btn_pause);
-		btn_pause.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				// Launching Pause Screen
-				Intent i = new Intent(getApplicationContext(), TestPause.class);
-				i.putExtra("cat", cat);
-				startActivity(i);
-			}
-		});
+//		Button btn_home = (Button) findViewById(R.id.btn_home);
+//
+//		btn_home.setOnClickListener(new View.OnClickListener() {
+//
+//			@Override
+//			public void onClick(View view) {
+//				Toast.makeText(getApplicationContext(), "You Cannot Exit",
+//						Toast.LENGTH_SHORT).show();
+//			}
+//		});
+//
+//		// Favourite questions button
+//		Button btn_fav = (Button) findViewById(R.id.btn_fav);
+//
+//		// Hint button
+//		Button btn_hint = (Button) findViewById(R.id.btn_hint);
+//
+//		// Go To button
+//		Button btn_goto = (Button) findViewById(R.id.btn_goto);
+//
+//		// Help button
+//		Button btn_help = (Button) findViewById(R.id.btn_help);
+//
+//		btn_help.setOnClickListener(new View.OnClickListener() {
+//
+//			@Override
+//			public void onClick(View view) {
+//				// Launching Help Screen
+//				Intent i = new Intent(getApplicationContext(), help1.class);
+//
+//				startActivity(i);
+//			}
+//		});
+//
+//		// Finish Button
+//		Button btn_finish = (Button) findViewById(R.id.btn_finish);
+//
+//		// Pause Button
+//		Button btn_pause = (Button) findViewById(R.id.btn_pause);
+//		btn_pause.setOnClickListener(new View.OnClickListener() {
+//
+//			@Override
+//			public void onClick(View view) {
+//				// Launching Pause Screen
+//				Intent i = new Intent(getApplicationContext(), TestPause.class);
+//				i.putExtra("cat", cat);
+//				startActivity(i);
+//			}
+//		});
 
 		/**
 		 * Handling all button click events
 		 * */
-		RadioGroup radiogroup = (RadioGroup) findViewById(R.id.options);
-		radiogroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				if (answerOption1.isChecked()) {
-					b[click] = 1;
-					ans[click] = 1;
-					gotoclick[click] = 1;
-				} else if (answerOption2.isChecked()) {
-					b[click] = 2;
-					ans[click] = 2;
-					gotoclick[click] = 1;
-				} else if (answerOption3.isChecked()) {
-					b[click] = 3;
-					ans[click] = 3;
-					gotoclick[click] = 1;
-				} else if (answerOption4.isChecked()) {
-					b[click] = 4;
-					ans[click] = 4;
-					gotoclick[click] = 1;
-				} else {
-
-				}
-			}
-		});
-
-		btn_finish.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-
-				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-
-				TextView title = new TextView(context);
-				title.setText("Aptitude App");
-				title.setBackgroundColor(Color.DKGRAY);
-				title.setPadding(10, 10, 10, 10);
-				title.setGravity(Gravity.CENTER);
-				title.setTextColor(Color.WHITE);
-				title.setTextSize(20);
-				alertDialogBuilder.setCustomTitle(title);
-
-				// set dialog message
-				alertDialogBuilder
-				.setMessage("Click yes to exit!")
-				.setCancelable(false)
-				.setPositiveButton("Yes",
-						new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,int id) {
-						// if this button is clicked, close current activity
-						Intent i = new Intent(getApplicationContext(),ShowScore.class);
-						time = text.getText() + "";
-
-						sec = sec + 40;
-						String timetaken = min + "." + sec + "";
-
-						double timetak = Float.parseFloat(timetaken);
-
-						double tt = 20.00 - timetak;
-
-						DecimalFormat df = new DecimalFormat("00.00");
-						String j = df.format(tt);
-
-						i.putExtra("score", ans);
-						i.putExtra("givenans", givenans);
-						i.putExtra("allid", a);
-						i.putExtra("tt", j);
-						i.putExtra("category", cat);
-
-						startActivity(i);
-						TestPagePsych.this.finish();
-					}
-				})
-				.setNegativeButton("No",
-						new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,int id) {
-						// if this button is clicked, just close the dialog box and do nothing
-						dialog.cancel();
-					}
-				});
-
-				// create alert dialog
-				AlertDialog alertDialog = alertDialogBuilder.create();
-
-				// show it
-				alertDialog.show();
-			}
-		});
-
-		// Listening for Favourite Question button click
-		btn_fav.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				int val = a[click];
-				QuantsTable q = db.getQuants(val, cat);
-				String ques = q.getQues();
-				String op1 = q.getOption1();
-				String op2 = q.getOption2();
-				String op3 = q.getOption3();
-				String op4 = q.getOption4();
-				String sol = q.getSol();
-				db.addFav(new Favourite(ques, op1, op2, op3, op4, sol));
-
-				Toast.makeText(getApplicationContext(), "Added To Favourite",
-						Toast.LENGTH_SHORT).show();
-			}
-		});
-
-		// Listening for Hint button click
-		btn_hint.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				// Launching News Feed Screen
-				Intent i = new Intent(getApplicationContext(), Hint.class);
-				i.putExtra("cat", cat);
-				startActivity(i);
-			}
-		});
-
-		// Listening for Go To button click
-		btn_goto.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				// Launching Go To Screen
-				Intent i = new Intent(getApplicationContext(), Calender.class);
-				i.putExtra("gotoclick", gotoclick);
-				i.putExtra("click", click);
-				startActivityForResult(i, STATIC_INTEGER_VALUE);
-			}
-		});
+//		btn_finish.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View arg0) {
+//
+//				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+//
+//				TextView title = new TextView(context);
+//				title.setText("Aptitude App");
+//				title.setBackgroundColor(Color.DKGRAY);
+//				title.setPadding(10, 10, 10, 10);
+//				title.setGravity(Gravity.CENTER);
+//				title.setTextColor(Color.WHITE);
+//				title.setTextSize(20);
+//				alertDialogBuilder.setCustomTitle(title);
+//
+//				// set dialog message
+//				alertDialogBuilder
+//				.setMessage("Click yes to exit!")
+//				.setCancelable(false)
+//				.setPositiveButton("Yes",
+//						new DialogInterface.OnClickListener() {
+//					public void onClick(DialogInterface dialog,int id) {
+//						// if this button is clicked, close current activity
+//						Intent i = new Intent(getApplicationContext(),ShowScore.class);
+//						time = text.getText() + "";
+//
+//						sec = sec + 40;
+//						String timetaken = min + "." + sec + "";
+//
+//						double timetak = Float.parseFloat(timetaken);
+//
+//						double tt = 20.00 - timetak;
+//
+//						DecimalFormat df = new DecimalFormat("00.00");
+//						String j = df.format(tt);
+//
+//						i.putExtra("score", ans);
+//						i.putExtra("givenans", givenans);
+//						i.putExtra("allid", a);
+//						i.putExtra("tt", j);
+//						i.putExtra("category", cat);
+//
+//						startActivity(i);
+//						TestPagePsych.this.finish();
+//					}
+//				})
+//				.setNegativeButton("No",
+//						new DialogInterface.OnClickListener() {
+//					public void onClick(DialogInterface dialog,int id) {
+//						// if this button is clicked, just close the dialog box and do nothing
+//						dialog.cancel();
+//					}
+//				});
+//
+//				// create alert dialog
+//				AlertDialog alertDialog = alertDialogBuilder.create();
+//
+//				// show it
+//				alertDialog.show();
+//			}
+//		});
+//
+//		// Listening for Favourite Question button click
+//		btn_fav.setOnClickListener(new View.OnClickListener() {
+//
+//			@Override
+//			public void onClick(View view) {
+//				int val = a[click];
+//				QuantsTable q = db.getQuants(val, cat);
+//				String ques = q.getQues();
+//				String op1 = q.getOption1();
+//				String op2 = q.getOption2();
+//				String op3 = q.getOption3();
+//				String op4 = q.getOption4();
+//				String sol = q.getSol();
+//				db.addFav(new Favourite(ques, op1, op2, op3, op4, sol));
+//
+//				Toast.makeText(getApplicationContext(), "Added To Favourite",
+//						Toast.LENGTH_SHORT).show();
+//			}
+//		});
+//
+//		// Listening for Hint button click
+//		btn_hint.setOnClickListener(new View.OnClickListener() {
+//
+//			@Override
+//			public void onClick(View view) {
+//				// Launching News Feed Screen
+//				Intent i = new Intent(getApplicationContext(), Hint.class);
+//				i.putExtra("cat", cat);
+//				startActivity(i);
+//			}
+//		});
+//
+//		// Listening for Go To button click
+//		btn_goto.setOnClickListener(new View.OnClickListener() {
+//
+//			@Override
+//			public void onClick(View view) {
+//				// Launching Go To Screen
+//				Intent i = new Intent(getApplicationContext(), Calender.class);
+//				i.putExtra("gotoclick", gotoclick);
+//				i.putExtra("click", click);
+//				startActivityForResult(i, STATIC_INTEGER_VALUE);
+//			}
+//		});
 
 //		int g = 0;
 //		List<QuantsTable> quants = db.getAllQuants(cat);
