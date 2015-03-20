@@ -126,49 +126,72 @@ public class TestPagePsych extends Activity implements OnClickListener {
 		// show it
 		alertDialog.show();
 		scenario = (TextView) findViewById(R.id.scenario);
-		scenario.setText("test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test ");
+		scenario.setText("You are a Human Resources (HR) Assistant working in the HR Department of a busy NHS Hospital Trust. "
+				+ "The hospital is the Princess Aurora General in Saldringham City. Your role is to carry out administrative tasks "
+				+ "to support the HR activities required in the Trust. You organise and support recruitment, book training courses, "
+				+ "provide secretarial support at disciplinary investigations and keep personnel records for all medical and non-medical "
+				+ "staff up-to-date including pay and conditions information.You report to one of two HR Managers who in turn report "
+				+ "to the HR Director. Your manager is called Fiona Potter.");
 
-		optionD = (TextView) findViewById(R.id.optionD);
-		optionD.setText("test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test "
-				+ "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test ");
+		situation = (TextView) findViewById(R.id.situation);
+		situation.setText("\nIt is a Tuesday morning and a colleague in the stationery section is away on sick leave. At 11am you are on "
+				+ "your way to the staff room to take a quick tea break when, passing through the stationery section, you notice that it "
+				+ "is in a reasonable amount of disarray. Products have fallen on the floor and been left lying there, shelves are untidy "
+				+ "and some products are on the wrong shelves.");
 
+		
 		/**
 		 * Creating all buttons instances
 		 * */
 		// Home button
-//		Button btn_home = (Button) findViewById(R.id.btn_home);
-//
-//		btn_home.setOnClickListener(new View.OnClickListener() {
-//
-//			@Override
-//			public void onClick(View view) {
-//				Toast.makeText(getApplicationContext(), "You Cannot Exit",
-//						Toast.LENGTH_SHORT).show();
-//			}
-//		});
-//
-//		// Favourite questions button
-//		Button btn_fav = (Button) findViewById(R.id.btn_fav);
-//
-//		// Hint button
-//		Button btn_hint = (Button) findViewById(R.id.btn_hint);
-//
-//		// Go To button
-//		Button btn_goto = (Button) findViewById(R.id.btn_goto);
-//
-//		// Help button
-//		Button btn_help = (Button) findViewById(R.id.btn_help);
-//
-//		btn_help.setOnClickListener(new View.OnClickListener() {
-//
-//			@Override
-//			public void onClick(View view) {
-//				// Launching Help Screen
-//				Intent i = new Intent(getApplicationContext(), help1.class);
-//
-//				startActivity(i);
-//			}
-//		});
+		Button btn_home = (Button) findViewById(R.id.btn_home);
+
+		btn_home.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				Toast.makeText(getApplicationContext(), "You Cannot Exit",
+						Toast.LENGTH_SHORT).show();
+			}
+		});
+
+		// Favourite questions button
+		Button btn_fav = (Button) findViewById(R.id.btn_fav);
+
+		// Hint button
+		Button btn_hint = (Button) findViewById(R.id.btn_hint);
+
+		// Go To button
+		Button btn_goto = (Button) findViewById(R.id.btn_goto);
+
+		// Help button
+		Button btn_help = (Button) findViewById(R.id.btn_help);
+
+		btn_help.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				// Launching Help Screen
+				Intent i = new Intent(getApplicationContext(), help1.class);
+
+				startActivity(i);
+			}
+		});
+		
+		// Submit button
+		Button submit = (Button)findViewById(R.id.submitBtn);
+		
+		submit.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// Launching Help Screen
+				Intent i = new Intent(getApplicationContext(), PsycometricTestFeedback.class);
+
+				startActivity(i);
+				
+			}
+		});
 //
 //		// Finish Button
 //		Button btn_finish = (Button) findViewById(R.id.btn_finish);
