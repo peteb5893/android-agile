@@ -16,12 +16,12 @@ public class testUserInput {
 	@Test
 	public void testValidInput() {
 		String input = "A";
-		assertTrue(test.validateInput(input));
+		assertTrue(test.validInput(input));
 	}
 
 	@Test
 	public void testInvalidInput() {
 		String input = "g";
-		assertFalse(test.validateInput(input));
+		assertFalse(test.validInput(input));
 	}
 }
