@@ -205,5 +205,7 @@ public class Verbal extends Activity {
 				startActivity(i);
 			}
 		});
+		
+		
 	}
 }
