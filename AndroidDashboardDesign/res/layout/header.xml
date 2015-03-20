@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/ActionBarCompat"
-    android:layout_width="55dp"
-   android:background="#6B24B2" >
+    android:layout_width="50dp"
+    android:background="#6B24B2" >
 
     <ScrollView
         android:id="@+id/horizontalScrollView1"
