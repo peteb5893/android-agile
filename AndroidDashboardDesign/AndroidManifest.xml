@@ -100,6 +100,9 @@
         <activity android:name="com.aptitudeguru.dashboard.TestPagedbms" 
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name="com.aptitudeguru.dashboard.TestPagePsych" 
+            android:screenOrientation="portrait">
+        </activity>
         <activity android:name="com.aptitudeguru.dashboard.TestPagehtml"
             android:screenOrientation="portrait" >
         </activity>
