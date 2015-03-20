@@ -194,7 +194,20 @@ public class TestPagePsych extends Activity implements OnClickListener {
 				+ "your way to the staff room to take a quick tea break when, passing through the stationery section, you notice that it "
 				+ "is in a reasonable amount of disarray. Products have fallen on the floor and been left lying there, shelves are untidy "
 				+ "and some products are on the wrong shelves.");
+		
+		optionA = (TextView) findViewById(R.id.optionA);
+		optionA.setText("Take your tea break and then on the way back quickly tidy up a few bits and pieces if it's still in a state");
 
+		optionB = (TextView) findViewById(R.id.optionB);
+		optionB.setText("Go back to your section and ask your team leader whether you can be spared for 10 or 15 minutes to help out in stationery. "
+				+ "If agreed, offer your help to the stationery team leader to quickly tidy up the area and take your tea break at 11.30am.");
+		
+		optionC = (TextView) findViewById(R.id.optionC);
+		optionC.setText("Do nothing. The stationery team leader probably has it all under control and will deal with it soon. It's understandable "
+				+ "that there's a bit of a mess as someone is away and you don't want to insult the stationery team by mentioning anything.");
+		
+		optionD = (TextView) findViewById(R.id.optionD);
+		optionD.setText("Inform the stationery team leader that there is a problem with the presentation of the section.");
 		
 		bestAnswer = (EditText) findViewById(R.id.bestAnswer);
 		worstAnswer = (EditText) findViewById(R.id.worstAnswer);
