@@ -7,6 +7,12 @@
 
     <!-- Include Action Bar -->
 
+	<include
+        android:id="@+id/include1"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        layout="@layout/header" />
+	
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,75 +23,110 @@
         android:layout_toRightOf="@+id/include1"
         android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/scenario"
+        <ScrollView
+            android:id="@+id/scrollView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.06"
-            android:text="TextView" />
+            android:layout_gravity="top"
+            android:layout_weight="0.06" >
 
-        <TextView
-            android:id="@+id/situation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.06"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/optionA"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="vertical"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/optionB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="vertical"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/optionC"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="vertical"
-            android:textColor="#000000"
-            android:textSize="15dp" />
-
-        <TextView
-            android:id="@+id/optionD"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.03" >
-
-            <EditText
-                android:id="@+id/editText1"
-                android:layout_width="126dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10" />
-
-            <EditText
-                android:id="@+id/editText2"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:gravity="right" />
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
 
-            <Button
-                android:id="@+id/button1"
-                android:layout_width="114dp"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                <TextView
+                    android:id="@+id/scenario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.06"
+                    android:scrollHorizontally="false" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/situation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.06"
+                    android:scrollHorizontally="false"/>
+
+                <TextView
+                    android:id="@+id/optionA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.06"
+                    android:scrollHorizontally="false"
+                    android:scrollbars="vertical" />
+
+                <TextView
+                    android:id="@+id/optionB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.06"
+                    android:scrollHorizontally="false"
+                    android:scrollbars="vertical" />
+
+                <TextView
+                    android:id="@+id/optionC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.06"
+                    android:scrollHorizontally="false"
+                    android:scrollbars="vertical"
+                    android:textColor="#000000"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/optionD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.06"
+                    android:scrollHorizontally="false"
+                    android:text="" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.03"
+                    android:orientation="vertical" >
+
+                    <EditText
+                        android:id="@+id/bestAnswer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:hint="Best Answer"
+                        android:scrollHorizontally="false" />
+
+                    <EditText
+                        android:id="@+id/worstAnswer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:hint="Worst Answer"
+                        android:scrollHorizontally="false" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <Button
+                            android:id="@+id/submitBtn"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.06"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:scrollHorizontally="false"
+                            android:text="Submit" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 
