@@ -1,8 +1,10 @@
 package com.aptitudeguru.dashboard;
 
 import java.text.DecimalFormat;
+import java.util.Locale;
 //import java.util.List;
 import java.util.Random;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,8 +16,10 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.widget.Button;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -24,6 +28,7 @@ import androidhive.dashboard.R;
 
 public class TestPagePsych extends Activity implements OnClickListener {
 	TextView scenario, situation, optionA, optionB, optionC, optionD;
+	EditText bestAnswer, worstAnswer;
 	String cat = "";
 	int click = 0;
 	Random r = new Random();
@@ -38,6 +43,57 @@ public class TestPagePsych extends Activity implements OnClickListener {
 	DatabaseHandler db = new DatabaseHandler(this);
 
 	int k1 = 0;
+	
+	// validate that the user typed in A, B, C, or D
+		public boolean validInput(String input) {
+			input = input.toLowerCase(Locale.getDefault()); // normalise input to lower case
+			if (input.equals("a") || input.equals("b") || input.equals("c") || input.equals("d")){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		
+		// check that the user hasn't entered the same answer twice
+		public boolean isDuplicateInput(EditText editTextA, EditText editTextB){
+			String input1 = editTextA.getText().toString();
+			String input2 = editTextB.getText().toString();
+			
+			if (input1.equals(input2)) // compare the text typed into both text entry boxes
+				return true;
+			else
+				return false;
+		}
+		
+		// listener for when an edit text box loses focus (the user taps away from it)
+		private void setOnFocusChangeListener(final EditText editText){
+			editText.setOnFocusChangeListener(new OnFocusChangeListener() {
+
+				@Override
+				public void onFocusChange(View v, boolean hasFocus) {
+					if(!hasFocus){
+						String input = editText.getText().toString();
+						
+						editText.setError(null); // clear any previous errors
+						
+						if(validInput(input)) { // user entered a valid input
+							if (!isDuplicateInput(bestAnswer, worstAnswer)){ // user didn't enter a duplicate input
+								// 
+								//textView1.setText(input);
+							}
+							else {
+								editText.setError("Already entered " + input + ", select another option");
+							}
+						}
+						else {
+							editText.setError("Enter A, B, C, D");
+						}
+					}
+				}
+				
+			});
+		}
 
 	@Override
 	public void onBackPressed() {
@@ -140,6 +196,12 @@ public class TestPagePsych extends Activity implements OnClickListener {
 				+ "and some products are on the wrong shelves.");
 
 		
+		bestAnswer = (EditText) findViewById(R.id.bestAnswer);
+		worstAnswer = (EditText) findViewById(R.id.worstAnswer);
+		
+		setOnFocusChangeListener(bestAnswer);
+		setOnFocusChangeListener(worstAnswer);
+		
 		/**
 		 * Creating all buttons instances
 		 * */
@@ -155,14 +217,14 @@ public class TestPagePsych extends Activity implements OnClickListener {
 			}
 		});
 
-		// Favourite questions button
-		Button btn_fav = (Button) findViewById(R.id.btn_fav);
-
-		// Hint button
-		Button btn_hint = (Button) findViewById(R.id.btn_hint);
-
-		// Go To button
-		Button btn_goto = (Button) findViewById(R.id.btn_goto);
+//		// Favourite questions button
+//		Button btn_fav = (Button) findViewById(R.id.btn_fav);
+//
+//		// Hint button
+//		Button btn_hint = (Button) findViewById(R.id.btn_hint);
+//
+//		// Go To button
+//		Button btn_goto = (Button) findViewById(R.id.btn_goto);
 
 		// Help button
 		Button btn_help = (Button) findViewById(R.id.btn_help);
