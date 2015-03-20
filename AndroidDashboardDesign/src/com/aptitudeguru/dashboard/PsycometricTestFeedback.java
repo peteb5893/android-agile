@@ -104,50 +104,8 @@ import androidhive.dashboard.R;
 					Intent i = new Intent(getApplicationContext(), AboutUs.class);
 					startActivity(i);
 				}
-			});
-	  
-//	        Bundle bundle = getIntent().getExtras();
-//	        final int yourans[] = bundle.getIntArray("score");
-//	        final int givenans[]=bundle.getIntArray("givenans");
-//	        final String cat=bundle.getString("category");
-//	        final int allid[]=bundle.getIntArray("allid");
-//	        final String timetaken=bundle.getString("tt");
-//	        TextView timetak=(TextView) findViewById(R.id.textView5);
-//	        TextView incorr=(TextView) findViewById(R.id.textView3);
-//	        TextView unattem=(TextView) findViewById(R.id.textView4);
-//	        timetak.append(" "+timetaken);
-	        
-	        
-//	      
-//	        int score=0;
-//	        int index1=0,index2=0;
-//	        
-//	        for(int i=0;i<20;i++)
-//	        {
-//	        	if(yourans[index1++] == givenans[index2++])
-//	        	{   
-//	        		score++;
-//	        	}
-//	        }
-//	        t1=(TextView) findViewById(R.id.textView2);
-//	        t1.append(score+"/20");
-	        
-	      
-//	       DateFormat dateFormat = new SimpleDateFormat("dd/MM  HH:mm");
-//	       Date date = new Date();
-//	 	   String date1=dateFormat.format(date);
-//	 	   String date2=date1+"";
-//	 	   String score2=score+"";
-//	 	   db.addSbtable(new sbtable("vl",cat,date2,score2,timetaken));
-//	        
-//	      index1=0;
-//	      index2=0;      
-	      //////////////////////////////////////////////////      
-
-	      
-	}
-
-	
- 	}
+			});	      
+	}	
+}
 	
 
